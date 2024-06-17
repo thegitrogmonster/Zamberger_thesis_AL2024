@@ -1,0 +1,6 @@
+model,MAE,RMSE,params
+HistGradientBoostingRegressor(),805.3131155649739,1266.3407639073587,"{'learning_rate': 0.03737687002695101, 'loss': 'squared_error', 'max_iter': 391, 'max_leaf_nodes': 86, 'min_samples_leaf': 32}"
+HistGradientBoostingRegressor(),718.0102010722169,1279.0633331533068,"{'learning_rate': 0.026674675412324184, 'loss': 'squared_error', 'max_iter': 462, 'max_leaf_nodes': 82, 'min_samples_leaf': 16}"
+HistGradientBoostingRegressor(),762.1500130511622,1236.8437753855414,"{'learning_rate': 0.0628802929193671, 'loss': 'squared_error', 'max_iter': 365, 'max_leaf_nodes': 76, 'min_samples_leaf': 37}"
+HistGradientBoostingRegressor(),786.5292579501684,1371.9242128579115,"{'learning_rate': 0.04664818117698086, 'loss': 'squared_error', 'max_iter': 295, 'max_leaf_nodes': 70, 'min_samples_leaf': 37}"
+HistGradientBoostingRegressor(),768.9234006342452,1305.5155021530109,"{'learning_rate': 0.09413016706328403, 'loss': 'squared_error', 'max_iter': 373, 'max_leaf_nodes': 38, 'min_samples_leaf': 21}"
