@@ -1,0 +1,6 @@
+model,MAE,RMSE,params
+MLPRegressor(),1609.7353909564604,2222.7085980445195,"{'activation': 'tanh', 'alpha': 0.02667565513908713, 'early_stopping': True, 'hidden_layer_sizes': 154, 'solver': 'lbfgs', 'validation_fraction': 0.10579126616982742}"
+MLPRegressor(),1748.9429465515404,2611.040939026446,"{'activation': 'relu', 'alpha': 0.07018610271938198, 'early_stopping': True, 'hidden_layer_sizes': 69, 'solver': 'lbfgs', 'validation_fraction': 0.1081163889604213}"
+MLPRegressor(),1934.4827926813505,2840.3632182241695,"{'activation': 'relu', 'alpha': 0.022455499987710317, 'early_stopping': True, 'hidden_layer_sizes': 94, 'solver': 'lbfgs', 'validation_fraction': 0.12322241056298079}"
+MLPRegressor(),1659.4865393324428,2316.0523119894533,"{'activation': 'identity', 'alpha': 0.039726375321650416, 'early_stopping': False, 'hidden_layer_sizes': 172, 'solver': 'lbfgs', 'validation_fraction': 0.11635606683567792}"
+MLPRegressor(),1772.8052858599547,2577.123256750118,"{'activation': 'identity', 'alpha': 0.05255106933140498, 'early_stopping': False, 'hidden_layer_sizes': 58, 'solver': 'lbfgs', 'validation_fraction': 0.19595349950582952}"
