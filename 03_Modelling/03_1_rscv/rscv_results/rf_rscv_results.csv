@@ -34,3 +34,9 @@ RandomForestRegressor(),1473.2548800685202,2160.0521933136497,"{'max_depth': 14,
 RandomForestRegressor(),1312.5635016642307,1951.6999391866777,"{'max_depth': 10, 'max_features': 5, 'min_samples_split': 12, 'n_estimators': 55}"
 RandomForestRegressor(),1338.665948162084,1953.3886042061536,"{'max_depth': 12, 'max_features': 6, 'min_samples_split': 2, 'n_estimators': 58}"
 RandomForestRegressor(),1318.1860866773739,1942.2416105008263,"{'max_depth': 10, 'max_features': 6, 'min_samples_split': 5, 'n_estimators': 65}"
+model,MAE,RMSE,params
+RandomForestRegressor(),118.4112778548893,151.77479536551104,"{'max_depth': 16, 'max_features': 4, 'min_samples_split': 12, 'n_estimators': 50}"
+RandomForestRegressor(),125.27395961600729,150.1647169788388,"{'max_depth': 6, 'max_features': 7, 'min_samples_split': 4, 'n_estimators': 13}"
+RandomForestRegressor(),120.23735530261787,149.34337522589146,"{'max_depth': 7, 'max_features': 7, 'min_samples_split': 15, 'n_estimators': 5}"
+RandomForestRegressor(),121.77776088953179,146.24021814736759,"{'max_depth': 12, 'max_features': 7, 'min_samples_split': 9, 'n_estimators': 23}"
+RandomForestRegressor(),127.72551322918461,153.52286867583928,"{'max_depth': 15, 'max_features': 7, 'min_samples_split': 16, 'n_estimators': 22}"

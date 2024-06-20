@@ -10,3 +10,9 @@ PLSRegression(),1278.0728267325562,1691.6208907481239,"{'copy': True, 'max_iter'
 PLSRegression(),1197.916059570866,1640.3452329150084,"{'copy': True, 'max_iter': 179, 'n_components': 20, 'scale': True, 'tol': 0.8290495759442987}"
 PLSRegression(),1465.2281144995557,1917.625017076089,"{'copy': True, 'max_iter': 152, 'n_components': 38, 'scale': False, 'tol': 0.32958613646158835}"
 PLSRegression(),1202.3852194335936,1618.6411988086668,"{'copy': True, 'max_iter': 321, 'n_components': 45, 'scale': False, 'tol': 0.1558453412413154}"
+model,MAE,RMSE,params
+PLSRegression(),155.9687514430636,190.52857321721274,"{'copy': True, 'max_iter': 509, 'n_components': 8, 'scale': True, 'tol': np.float64(0.8700938486804547)}"
+PLSRegression(),143.13362374501364,178.62605410125948,"{'copy': True, 'max_iter': 361, 'n_components': 2, 'scale': False, 'tol': np.float64(0.29038613102256156)}"
+PLSRegression(),145.0016485371522,183.98733323245526,"{'copy': True, 'max_iter': 367, 'n_components': 15, 'scale': False, 'tol': np.float64(0.6047186501763625)}"
+PLSRegression(),130.8235317743475,159.92418174073154,"{'copy': True, 'max_iter': 92, 'n_components': 10, 'scale': True, 'tol': np.float64(0.28822471504127617)}"
+PLSRegression(),116.19503748791085,148.08466927018503,"{'copy': True, 'max_iter': 339, 'n_components': 12, 'scale': True, 'tol': np.float64(0.6786318868399671)}"

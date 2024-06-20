@@ -1,0 +1,58 @@
+2024-06-20 17:11:46 - INFO - Logging started
+2024-06-20 17:17:49 - INFO - Logging started
+2024-06-20 17:17:52 - INFO - Dataset: data_dps_deriv_1200
+2024-06-20 17:17:52 - INFO - Size of the dataset: (1290, 415)
+2024-06-20 17:17:52 - INFO - Size of the dataset reduced: (194, 415)
+2024-06-20 17:17:52 - INFO - Testing for Cross Validation: True, nfolds: 5, NoTrials: 5, n_jobs: 20
+2024-06-20 17:17:53 - INFO - Number of columns dropped, where std = 0.0 in X: 0
+2024-06-20 17:17:53 - INFO - Dimensions of X after dropping columns with std = 0.0: (194, 410)
+2024-06-20 17:17:53 - INFO - Dimensions of Y: (194,)
+2024-06-20 17:17:53 - INFO - random split with testsize 0.3 into training and test sets
+2024-06-20 17:17:53 - INFO - Scorer: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-20 17:17:54 - INFO - Results file: ../03_Modelling/03_1_rscv/rscv_results/rf_rscv_results.csv
+2024-06-20 17:17:54 - INFO - Features: (194, 410), Target: (194,), Model: RandomForestRegressor(), Param_distributions: {'n_estimators': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460cd3cc50>, 'min_samples_split': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460cd3ce00>, 'max_features': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460cd3cfb0>, 'max_depth': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460cd7f770>}, Results File: ../03_Modelling/03_1_rscv/rscv_results/rf_rscv_results.csv Random_state: RandomState(MT19937), NoTrials: 5, nfolds: 4, n_jobs: 5, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-20 17:17:54 - INFO - Trial: 0 out of 5
+2024-06-20 17:18:04 - INFO - Trial: 1 out of 5
+2024-06-20 17:18:12 - INFO - Trial: 2 out of 5
+2024-06-20 17:18:21 - INFO - Trial: 3 out of 5
+2024-06-20 17:18:29 - INFO - Trial: 4 out of 5
+2024-06-20 17:18:38 - INFO - Features: (194, 410), Target: (194,), Model: PLSRegression(), Param_distributions: {'n_components': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460cd7d6a0>, 'scale': [True, False], 'max_iter': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460cd7d430>, 'tol': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460cd7cd70>, 'copy': [True]}, Results File: ../03_Modelling/03_1_rscv/rscv_results//pls_rscv_results.csv Random_state: RandomState(MT19937), NoTrials: 5, nfolds: 4, n_jobs: 5, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-20 17:18:38 - INFO - Trial: 0 out of 5
+2024-06-20 17:18:40 - INFO - Trial: 1 out of 5
+2024-06-20 17:18:42 - INFO - Trial: 2 out of 5
+2024-06-20 17:18:44 - INFO - Trial: 3 out of 5
+2024-06-20 17:18:46 - INFO - Trial: 4 out of 5
+2024-06-20 17:18:49 - INFO - Features: (194, 410), Target: (194,), Model: KernelRidge(), Param_distributions: {'alpha': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460cd7caa0>, 'gamma': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460cd7c4d0>, 'kernel': ['linear', 'poly', 'polynomial', 'rbf']}, Results File: ../03_Modelling/03_1_rscv/rscv_results//krr_rscv_results.csv Random_state: RandomState(MT19937), NoTrials: 5, nfolds: 4, n_jobs: 5, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-20 17:18:49 - INFO - Trial: 0 out of 5
+2024-06-20 17:18:50 - INFO - Trial: 1 out of 5
+2024-06-20 17:18:51 - INFO - Trial: 2 out of 5
+2024-06-20 17:18:53 - INFO - Trial: 3 out of 5
+2024-06-20 17:18:54 - INFO - Trial: 4 out of 5
+2024-06-20 17:18:55 - INFO - Features: (194, 410), Target: (194,), Model: MLPRegressor(), Param_distributions: {'hidden_layer_sizes': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460ccf5f40>, 'activation': ['identity', 'logistic', 'tanh', 'relu'], 'solver': ['lbfgs', 'sgd', 'adam'], 'alpha': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf5850>, 'early_stopping': [True, False], 'validation_fraction': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf5fa0>}, Results File: ../03_Modelling/03_1_rscv/rscv_results//mlp_rscv_results.csv Random_state: RandomState(MT19937), NoTrials: 5, nfolds: 4, n_jobs: 5, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-20 17:18:55 - INFO - Trial: 0 out of 5
+2024-06-20 17:19:46 - INFO - Trial: 1 out of 5
+2024-06-20 17:21:30 - INFO - Trial: 2 out of 5
+2024-06-20 17:23:27 - INFO - Trial: 3 out of 5
+2024-06-20 17:25:51 - INFO - Trial: 4 out of 5
+2024-06-20 17:29:07 - INFO - Features: (194, 410), Target: (194,), Model: XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, device=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=None, max_leaves=None,
+             min_child_weight=None, missing=nan, monotone_constraints=None,
+             multi_strategy=None, n_estimators=None, n_jobs=None,
+             num_parallel_tree=None, random_state=None, ...), Param_distributions: {'n_estimators': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460ccf43b0>, 'max_depth': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460ccf41a0>, 'learning_rate': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf4aa0>, 'subsample': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf5490>, 'colsample_bytree': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf50a0>, 'gamma': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf5cd0>, 'reg_alpha': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf5eb0>, 'reg_lambda': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf5820>}, Results File: ../03_Modelling/03_1_rscv/rscv_results//xgb_rscv_results.csv Random_state: RandomState(MT19937), NoTrials: 5, nfolds: 4, n_jobs: 5, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-20 17:29:07 - INFO - Trial: 0 out of 5
+2024-06-20 17:29:31 - INFO - Trial: 1 out of 5
+2024-06-20 17:30:29 - INFO - Trial: 2 out of 5
+2024-06-20 17:31:06 - INFO - Trial: 3 out of 5
+2024-06-20 17:31:41 - INFO - Trial: 4 out of 5
+2024-06-20 17:33:09 - INFO - Features: (194, 410), Target: (194,), Model: HistGradientBoostingRegressor(), Param_distributions: {'loss': ['squared_error'], 'learning_rate': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f460ccf6360>, 'max_iter': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460ccf5c70>, 'max_leaf_nodes': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460ccf6870>, 'min_samples_leaf': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f460ccf66c0>}, Results File: ../03_Modelling/03_1_rscv/rscv_results//hgb_rscv_results.csv Random_state: RandomState(MT19937), NoTrials: 5, nfolds: 4, n_jobs: 5, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-20 17:33:09 - INFO - Trial: 0 out of 5
+2024-06-20 17:33:56 - INFO - Trial: 1 out of 5
+2024-06-20 17:34:41 - INFO - Trial: 2 out of 5
+2024-06-20 17:35:40 - INFO - Trial: 3 out of 5
+2024-06-20 17:36:32 - INFO - Trial: 4 out of 5
