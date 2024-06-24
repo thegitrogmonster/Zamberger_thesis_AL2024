@@ -179,3 +179,42 @@ def calc_set_sizes(X_train, X_test, X_val, logging):
     logging.info(f"Validation set: {len(X_val)} ({calculate_percentage(len(X_val), total_size)}%)")
 
     return None
+
+def validate_parameters(X_train,
+    y_train,
+    model_class=None,
+    model_params={},
+    selection_criterion=None,
+    n_iterations=None,
+    n_samples_per_it=None,
+    init_sample_size=None):
+ """
+    Validates the parameters passed to the active_learning function.
+
+    Raises
+    ------
+    ValueError
+        If any of the parameters do not meet the validation criteria.
+    """
+    # Check if X_train and y_train are compatible
+    if len(X_train)!= len(y_train):
+        raise ValueError("X_train and y_train must have the same length.")
+    
+    # Check if the length of X_train is greater than the initial sample size or the n_iterations
+    if len(X_train) < init_sample_size or len(X_train) < n_iterations or len(X_train) < (n_samples_per_it**n_iterations):
+        raise ValueError(
+            f"X_train does not contain enough samples{len(X_train)} for the initial sample size {len(init_sample_size)} or the number of iterations{n_iterations}. Try reducing the number of iterations or the initial sample size.")
+    
+    # Check if n_iterations is a positive integer
+    if not isinstance(n_iterations, int) or n_iterations <= 0:
+        raise ValueError("n_iterations must be a positive integer.")
+    
+    # Check if params is a dictionary
+    if not isinstance(model_params, dict):
+        raise ValueError("model_params must be a dictionary.")
+    
+    # Initialize the model without fitting
+    try:
+        test_model = model_class(**model_params)
+    except Exception as e:
+        raise ValueError(f"Invalid parameters for {model_class}: {e}")
