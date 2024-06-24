@@ -1,0 +1,6 @@
+model,MAE,RMSE,params
+KernelRidge(),2560.88682140769,3865.1827914868245,"{'alpha': np.float64(0.09929504930130156), 'gamma': np.float64(0.07480223068123924), 'kernel': 'rbf'}"
+KernelRidge(),2556.8114174252587,3859.8402068055416,"{'alpha': np.float64(0.06758678637775793), 'gamma': np.float64(0.07251607317194428), 'kernel': 'polynomial'}"
+KernelRidge(),2557.512997575518,3859.7471802670552,"{'alpha': np.float64(0.04468874793531283), 'gamma': np.float64(0.09300070339819012), 'kernel': 'rbf'}"
+KernelRidge(),2558.157614497585,3862.0245629083006,"{'alpha': np.float64(0.04929131693398055), 'gamma': np.float64(0.06982977810819728), 'kernel': 'polynomial'}"
+KernelRidge(),2558.521368239932,3863.62823837394,"{'alpha': np.float64(0.0505528271587615), 'gamma': np.float64(0.05231103691871219), 'kernel': 'rbf'}"
