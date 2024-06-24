@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error
 from numpy import sqrt
 import matplotlib.pyplot as plt
+import pandas as pd
 # This file is used to document functions which are used in the "Thesis" project
 
 
@@ -10,23 +11,14 @@ def rmse_func(a, b):
     Compute the Root Mean Squared Error (RMSE)
 
     Input:
-    y_true: array-like, true values of the target variable
-    y_pred: array-like, predicted values of the target variable
+    a: array-like, true values of the target variable
+    b: array-like, predicted values of the target variable
 
     Output:
     float, RMSE of the model
     """
     return np.sqrt(mean_squared_error(a, b))
 
-    """
-    Report the best hyperparameters and the best score of the model
-
-    Input:
-    cv_obj: can be a GridSearchCV or RandomizedSearchCV object from sklearn
-
-    Output:
-
-    """
 def report_model(cv_obj):
     """A function to report the best hyperparameters and the best score of the model
     Parameters
@@ -87,6 +79,22 @@ def plot_actual_vs_pred(ax, y_true, y_pred, param_dict, fig_path=None):
     plt.show()
 
 def plot_feature_importance(ax, model, X_train, param_dict, fig_path):
+    """Function to plot the feature importance of the model if the model 
+    has the attribute "feature_importances_"
+
+    Parameters
+    ----------
+        ax: matplotlib axis
+            "The Axes class represents one (sub-)plot in a figure" from a matplotlib object
+        model: sklearn model
+            the fitted model to extract the feature importance
+        X_train: pd.DataFrame
+            the training set used to fit the model
+        param_dict: dict
+            additional parameters to pass to the plot, e.g. title: (param_dict["title"])
+        fig_path: str (optional)
+            path to save the figure. If None, no file is created
+    """
     try:
         feature_importance = model.feature_importances_
     except AttributeError:
@@ -108,3 +116,66 @@ def plot_feature_importance(ax, model, X_train, param_dict, fig_path):
     else:
         pass
     plt.show()
+
+def import_dpsDeriv1200(datafile):
+    """
+    Import and perform the necessary preprocessing steps on the dataset "dpsDeriv1200".
+
+    Parameters
+    ----------
+    datafile : str
+        Path to the dataset "dpsDeriv1200".
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame containing the preprocessed dataset "dpsDeriv1200".
+    """
+
+    # Import
+    data_dps_deriv_1200 = pd.read_csv(datafile, sep=",", decimal=".", encoding="utf-8")
+    # rename the columns
+    data_dps_deriv_1200 = data_dps_deriv_1200.rename(columns=lambda x: x.replace("X", ""))
+    return data_dps_deriv_1200
+
+def calculate_percentage(size, total_size):
+    """
+    Calculate the percentage of a subset in relation to the total size.
+
+    Parameters
+    ----------
+    size : int
+        Size of the subset.
+    total_size : int
+        Total size of the dataset.
+
+    Returns
+    -------
+    float
+        Percentage of the subset in relation to the total size.
+    """
+    return round((size / total_size) * 100, 2)
+
+def calc_set_sizes(X_train, X_test, X_val, logging):
+    """
+    Log the number of samples and their percentages of the training, test, and validation sets.
+
+    Parameters
+    ----------
+    X_train, X_test, X_val : array-like
+        Arrays representing the training, test, and validation sets respectively.
+    logging : logging.Logger
+        Logger object to log the information.
+
+    Returns
+    -------
+    None
+    """
+    total_size = len(X_train) + len(X_test) + len(X_val)
+    
+    # Log the Number of samples and their percentages of the training, test, and validation set
+    logging.info(f"Training set: {len(X_train)} ({calculate_percentage(len(X_train), total_size)}%)")
+    logging.info(f"Test set: {len(X_test)} ({calculate_percentage(len(X_test), total_size)}%)")
+    logging.info(f"Validation set: {len(X_val)} ({calculate_percentage(len(X_val), total_size)}%)")
+
+    return None
