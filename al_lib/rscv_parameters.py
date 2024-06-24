@@ -19,10 +19,19 @@ pls_rscv_parameters = {
 }
 
 # KRR-RBF
-alpha_dist = uniform(loc=1e-3, scale=1e-1) # controls 'complexity'
-gamma_dist = uniform(loc=1e-3, scale=1e-1)
-kernel_list = ['linear', 'poly', 'polynomial', 'rbf',]
-krr_rscv_parameters = {"alpha": alpha_dist, "gamma": gamma_dist, "kernel": kernel_list}
+
+# previously tested distributions, with no success,
+# failure due to the small parameters space being to restrictive
+    # alpha_dist = uniform(loc=1e-3, scale=1e-1) # controls 'complexity'
+    # gamma_dist = uniform(loc=1e-3, scale=1e-1)
+    # kernel_list = ['linear', 'poly', 'polynomial', 'rbf',]
+
+# updated distributions
+krr_rscv_parameters = {
+    'alpha': loguniform(a=1e-6, b=1e6),  # Regularization strength
+    'gamma': loguniform(a=1e-3, b=1e6),  # Kernel coefficient for ‘rbf’
+    'kernel': ['rbf', 'linear', 'poly', 'polynomial','chi2'],
+}
 
 # MLP
 mlp_rscv_parameters = {
