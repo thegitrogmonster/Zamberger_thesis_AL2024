@@ -3,6 +3,8 @@ from sklearn.metrics import mean_squared_error
 from numpy import sqrt
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.model_selection import train_test_split
+
 # This file is used to document functions which are used in the "Thesis" project
 
 
@@ -19,11 +21,12 @@ def rmse_func(a, b):
     """
     return np.sqrt(mean_squared_error(a, b))
 
+
 def report_model(cv_obj):
     """A function to report the best hyperparameters and the best score of the model
     Parameters
     ----------
-    cv_obj: can be a GridSearchCV or RandomizedSearchCV object from sklearn   
+    cv_obj: can be a GridSearchCV or RandomizedSearchCV object from sklearn
     Returns
     -------
     None
@@ -35,21 +38,22 @@ def report_model(cv_obj):
     # print the best estimator
     print(f"Best estimator for {model_name}: {cv_obj.best_estimator_}")
 
+
 def plot_actual_vs_pred(ax, y_true, y_pred, param_dict, fig_path=None):
     """
-    Plot the actual values against the predicted values. 
-    The function tries to emulate the template from the documentation: 
+    Plot the actual values against the predicted values.
+    The function tries to emulate the template from the documentation:
     https://matplotlib.org/3.5.0/tutorials/introductory/usage.html#the-object-oriented-interface-and-the-pyplot-interface
 
     Parameters
     ----------
-    ax: matplotlib.axes.Axes, 
+    ax: matplotlib.axes.Axes,
         the axes object to draw the plot onto
-        
+
     y_true: array-like
         true values of the target variable
 
-    y_pred: array-like, 
+    y_pred: array-like,
         predicted values of the target variable
 
     param_dict: dict,
@@ -78,8 +82,9 @@ def plot_actual_vs_pred(ax, y_true, y_pred, param_dict, fig_path=None):
         pass
     plt.show()
 
+
 def plot_feature_importance(ax, model, X_train, param_dict, fig_path):
-    """Function to plot the feature importance of the model if the model 
+    """Function to plot the feature importance of the model if the model
     has the attribute "feature_importances_"
 
     Parameters
@@ -117,6 +122,7 @@ def plot_feature_importance(ax, model, X_train, param_dict, fig_path):
         pass
     plt.show()
 
+
 def import_dpsDeriv1200(datafile):
     """
     Import and perform the necessary preprocessing steps on the dataset "dpsDeriv1200".
@@ -135,8 +141,11 @@ def import_dpsDeriv1200(datafile):
     # Import
     data_dps_deriv_1200 = pd.read_csv(datafile, sep=",", decimal=".", encoding="utf-8")
     # rename the columns
-    data_dps_deriv_1200 = data_dps_deriv_1200.rename(columns=lambda x: x.replace("X", ""))
+    data_dps_deriv_1200 = data_dps_deriv_1200.rename(
+        columns=lambda x: x.replace("X", "")
+    )
     return data_dps_deriv_1200
+
 
 def calculate_percentage(size, total_size):
     """
@@ -156,6 +165,7 @@ def calculate_percentage(size, total_size):
     """
     return round((size / total_size) * 100, 2)
 
+
 def calc_set_sizes(X_train, X_test, X_val, logging):
     """
     Log the number of samples and their percentages of the training, test, and validation sets.
@@ -172,23 +182,32 @@ def calc_set_sizes(X_train, X_test, X_val, logging):
     None
     """
     total_size = len(X_train) + len(X_test) + len(X_val)
-    
+
     # Log the Number of samples and their percentages of the training, test, and validation set
-    logging.info(f"Training set: {len(X_train)} ({calculate_percentage(len(X_train), total_size)}%)")
-    logging.info(f"Test set: {len(X_test)} ({calculate_percentage(len(X_test), total_size)}%)")
-    logging.info(f"Validation set: {len(X_val)} ({calculate_percentage(len(X_val), total_size)}%)")
+    logging.info(
+        f"Training set: {len(X_train)} ({calculate_percentage(len(X_train), total_size)}%)"
+    )
+    logging.info(
+        f"Test set: {len(X_test)} ({calculate_percentage(len(X_test), total_size)}%)"
+    )
+    logging.info(
+        f"Validation set: {len(X_val)} ({calculate_percentage(len(X_val), total_size)}%)"
+    )
 
     return None
 
-def validate_parameters(X_train,
+
+def _validate_parameters(
+    X_train,
     y_train,
     model_class=None,
     model_params={},
     selection_criterion=None,
     n_iterations=None,
     n_samples_per_it=None,
-    init_sample_size=None):
- """
+    init_sample_size=None,
+):
+    """
     Validates the parameters passed to the active_learning function.
 
     Raises
@@ -197,24 +216,125 @@ def validate_parameters(X_train,
         If any of the parameters do not meet the validation criteria.
     """
     # Check if X_train and y_train are compatible
-    if len(X_train)!= len(y_train):
+    if len(X_train) != len(y_train):
         raise ValueError("X_train and y_train must have the same length.")
-    
+
     # Check if the length of X_train is greater than the initial sample size or the n_iterations
-    if len(X_train) < init_sample_size or len(X_train) < n_iterations or len(X_train) < (n_samples_per_it**n_iterations):
+    if (
+        len(X_train) < init_sample_size
+        or len(X_train) < n_iterations
+        or len(X_train) < (n_samples_per_it**n_iterations)
+    ):
         raise ValueError(
-            f"X_train does not contain enough samples{len(X_train)} for the initial sample size {len(init_sample_size)} or the number of iterations{n_iterations}. Try reducing the number of iterations or the initial sample size.")
-    
+            f"X_train does not contain enough samples{len(X_train)} for the initial sample size {len(init_sample_size)} or the number of iterations{n_iterations}. Try reducing the number of iterations or the initial sample size."
+        )
+
     # Check if n_iterations is a positive integer
     if not isinstance(n_iterations, int) or n_iterations <= 0:
         raise ValueError("n_iterations must be a positive integer.")
-    
+
     # Check if params is a dictionary
     if not isinstance(model_params, dict):
         raise ValueError("model_params must be a dictionary.")
-    
+
     # Initialize the model without fitting
     try:
         test_model = model_class(**model_params)
     except Exception as e:
         raise ValueError(f"Invalid parameters for {model_class}: {e}")
+    return None
+
+
+def _rnd_initial_sampling(
+    X_Pool, X_Learned, y_Pool, y_Learned, init_sample_size, random_state
+) -> (pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame):
+    """
+    Randomly select a subset of samples from the dataset.
+
+    Parameters
+    ----------
+    X : array-like
+        Features of the dataset.
+    y : array-like
+        Target values of the dataset.
+    init_sample_size : int
+        Number of samples to select.
+    random_state : int
+        Seed for the random number generator.
+
+    Returns
+    -------
+    X_Learned : pd.DataFrame
+        Features of the samples selected for training.
+    y_Learned : pd.DataFrame
+        Target values of the samples selected for training.
+    X_Pool : pd.DataFrame
+        Features of the samples not selected for training.
+    y_Pool : pd.DataFrame
+        Target values of the samples not selected for training.
+    """
+
+    rng = np.random.default_rng(random_state)
+    random_sample_index = rng.choice(X_Pool.index, size=init_sample_size, replace=False)
+    x_new = X_Pool.loc[random_sample_index]
+    y_new = y_Pool.loc[random_sample_index]
+    X_Learned = pd.concat([X_Learned, x_new], ignore_index=True)
+    y_Learned = pd.concat([y_Learned, y_new], ignore_index=True)
+    X_Pool = X_Pool.drop(index=random_sample_index)
+    y_Pool = y_Pool.drop(index=random_sample_index)
+    assert all(y_Learned.index == X_Learned.index)
+    assert all(y_Pool.index == X_Pool.index)
+    return X_Learned, y_Learned, X_Pool, y_Pool
+
+def _create_test_data():
+    """
+    Create a synthetic dataset for testing purposes.
+
+    Returns
+    -------
+    X_train, X_test, X_val, y_train, y_test, y_val
+    """
+    # Create a synthetic dataset
+    data = {
+        "feature1": np.random.rand(100),
+        "feature2": np.random.rand(100),
+        "feature3": np.random.rand(100),
+        "target": np.random.rand(100),
+    }
+    df = pd.DataFrame(data)
+    X = df[["feature1", "feature2", "feature3"]]
+    y = df["target"]
+    # split the data into training, test, and validation sets
+    random_state = 12345
+    validation_size = 0.1
+    test_size = 0.3
+    (
+    X_remainder,
+    X_val,
+    y_remainder,
+    y_val,
+    ) = train_test_split(X, y, test_size=validation_size, random_state=random_state)
+    
+    # split the remainder into training and test (30%) set
+    X_train, X_test, y_train, y_test = train_test_split(
+    X_remainder, y_remainder, test_size=test_size, random_state=random_state
+    )
+    return X_train, X_test, X_val, y_train, y_test, y_val
+
+def _test_params_krr():
+    """
+    Create a dictionary of parameters for testing the KernelRidge model.
+
+    Returns
+    -------
+    dict
+        Dictionary containing the parameters for testing the KernelRidge model.
+    """
+    params = {
+        "alpha": 1.0,
+        "kernel": "linear",
+        "gamma": None,
+        "degree": 3,
+        "coef0": 1,
+    }
+    return params

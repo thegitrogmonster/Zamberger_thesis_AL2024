@@ -6,7 +6,7 @@ from sklearn.model_selection import ShuffleSplit
 from sklearn.metrics import euclidean_distances
 
 
-def _random_selection(X_Pool, *args, **kwargs):
+def _random_selection(X_Pool, random_state, *args, **kwargs):
     """Select a random sample from the pool of samples
 
     Parameters:
@@ -16,11 +16,12 @@ def _random_selection(X_Pool, *args, **kwargs):
         random_sample_index (int): Index of the selected sample in X_Pool
         None: random selection does not return any additional information
     """
-    random_sample_index = np.random.choice(X_Pool.index)
+    rng = np.random.default_rng(random_state)
+    random_sample_index = rng.choice(X_Pool.index, replace=False)
     return random_sample_index, None
 
 
-def _gsx_selection(X_Pool, X_Learned):
+def _gsx_selection(X_Pool, X_Learned, *args, **kwargs):
     """Function to select samples in a greedy way in X-Space
     select the sample from X_Pool, where the euclidean distance to the samples in X_Learned is the largest
     Parameters:
@@ -43,7 +44,7 @@ def _gsx_selection(X_Pool, X_Learned):
     return sample_id, gsx_for_id
 
 
-def _gsy_selection(X_Pool, X_Learned, y_Learned, y_pred_pool):
+def _gsy_selection(X_Pool, X_Learned, y_Learned, y_pred_pool,*args, **kwargs):
     """Function to select samples in a greedy way in Y-Space
 
     Parameters:
@@ -75,7 +76,7 @@ def _gsy_selection(X_Pool, X_Learned, y_Learned, y_pred_pool):
 
 
 def _uncertainty_selection(
-    X_Pool, y_Pool, X_Learned, y_Learned, y_pred_pool, model, n_fold, logging
+    X_Pool, y_Pool, X_Learned, y_Learned, random_state, model, n_fold, logging, n_jobs, *args, **kwargs
 ) -> (int, float):
     """Function to select samples with the highest uncertainty for predictions
     evaluated by the standard deviation of the predictions in a cross-validation
@@ -85,10 +86,11 @@ def _uncertainty_selection(
         y_Pool (pd.DataFrame): Target values of Samples currently available to be selected
         X_Learned (pd.DataFrame): Variables of Samples already included in the modelling
         y_Learned (pd.DataFrame): Target values of Samples already included in the modelling
-        y_pred_pool (pd.DataFrame): Predictions of the model for the samples in X_Pool
+        random_state (int): Seed for the random number generator
         model (object): Model object, fitted on the training set previously
         n_fold (int): Number of folds for the cross-validation
         logging (object): Logging object
+        n_jobs (int): Number of cores used for processing
     Returns:
         sample_id (int): Index of the sample in X_Pool with the highest uncertainty
         uncertainty_for_id (float): Uncertainty of the sample with the highest uncertainty
@@ -102,11 +104,11 @@ def _uncertainty_selection(
     )
 
     # generate the n-fold splits for X_Pool and y_Pool
-    ss = ShuffleSplit(n_splits=n_fold, test_size=0.7, random_state=42)
+    ss = ShuffleSplit(n_splits=n_fold, test_size=0.7, random_state=random_state)
     ss.get_n_splits(X_Pool, y_Pool)
 
     for n_fold, (train_index, test_index) in enumerate(ss.split(X_Pool, y_Pool)):
-        logging.info(f"size of individual split: {len(train_index), len(test_index)}")
+        # logging.info(f"size of individual split: {len(train_index), len(test_index)}")
         # merge the X_Learned and the current split of X_Pool into a new training set
         X_train_fold = pd.concat([X_Learned, X_Pool.iloc[train_index]])
         y_train_fold = pd.concat([y_Learned, y_Pool.iloc[train_index]])
