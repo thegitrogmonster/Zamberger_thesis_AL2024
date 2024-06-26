@@ -39,8 +39,9 @@ mlp_rscv_parameters = {
     "activation": ["identity", "logistic", "tanh", "relu"],
     "solver": ["lbfgs", "sgd", "adam"],
     "alpha": uniform(loc=0.0001, scale=0.1),
-    "early_stopping": [True, False],
+    "early_stopping": [True],
     "validation_fraction": uniform(loc=0.1, scale=0.1),
+    "max_iter": randint(low=100, high=500),
 }
 
 # xgboost
