@@ -9,7 +9,7 @@ model,MAE,RMSE,params
              max_delta_step=None, max_depth=None, max_leaves=None,
              min_child_weight=None, missing=nan, monotone_constraints=None,
              multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",755.5441274407709,1322.683367211902,"{'colsample_bytree': 0.8801118290789387, 'gamma': 0.048938279121365835, 'learning_rate': 0.059504066774269275, 'max_depth': 4, 'n_estimators': 88, 'reg_alpha': 0.3490074679649478, 'reg_lambda': 0.12584195707947787, 'subsample': 0.9831847591319467}"
+             num_parallel_tree=None, random_state=None, ...)",72.90546111666264,101.54582872969968,"{'colsample_bytree': np.float64(0.6310485371309444), 'gamma': np.float64(0.4308707199226964), 'learning_rate': np.float64(0.10337109739840987), 'max_depth': 9, 'n_estimators': 87, 'reg_alpha': np.float64(0.406459379710613), 'reg_lambda': np.float64(0.25986483600665883), 'subsample': np.float64(0.5552915287857241)}"
 "XGBRegressor(base_score=None, booster=None, callbacks=None,
              colsample_bylevel=None, colsample_bynode=None,
              colsample_bytree=None, device=None, early_stopping_rounds=None,
@@ -20,7 +20,7 @@ model,MAE,RMSE,params
              max_delta_step=None, max_depth=None, max_leaves=None,
              min_child_weight=None, missing=nan, monotone_constraints=None,
              multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",784.4637054463169,1395.7916414310891,"{'colsample_bytree': 0.5670902721775144, 'gamma': 0.472521034984004, 'learning_rate': 0.07068152945632575, 'max_depth': 5, 'n_estimators': 67, 'reg_alpha': 0.03346607958994746, 'reg_lambda': 0.38957685932451447, 'subsample': 0.5316196015781669}"
+             num_parallel_tree=None, random_state=None, ...)",77.85226274830427,110.46606849379194,"{'colsample_bytree': np.float64(0.901009239167267), 'gamma': np.float64(0.31003874178233365), 'learning_rate': np.float64(0.08659884519418708), 'max_depth': 15, 'n_estimators': 88, 'reg_alpha': np.float64(0.2240520602011371), 'reg_lambda': np.float64(0.08149445088754725), 'subsample': np.float64(0.5671532900476488)}"
 "XGBRegressor(base_score=None, booster=None, callbacks=None,
              colsample_bylevel=None, colsample_bynode=None,
              colsample_bytree=None, device=None, early_stopping_rounds=None,
@@ -31,7 +31,7 @@ model,MAE,RMSE,params
              max_delta_step=None, max_depth=None, max_leaves=None,
              min_child_weight=None, missing=nan, monotone_constraints=None,
              multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",831.583129548885,1428.6628496114383,"{'colsample_bytree': 0.8577901585022998, 'gamma': 0.09436006807752356, 'learning_rate': 0.041848657674063774, 'max_depth': 7, 'n_estimators': 88, 'reg_alpha': 0.125350580588786, 'reg_lambda': 0.22587822493001075, 'subsample': 0.8574728803692789}"
+             num_parallel_tree=None, random_state=None, ...)",72.85679512122496,103.53493119587723,"{'colsample_bytree': np.float64(0.6977959974835447), 'gamma': np.float64(0.1673455277761587), 'learning_rate': np.float64(0.07436886816368649), 'max_depth': 14, 'n_estimators': 64, 'reg_alpha': np.float64(0.10369646890680362), 'reg_lambda': np.float64(0.3624380456831193), 'subsample': np.float64(0.594408055474044)}"
 "XGBRegressor(base_score=None, booster=None, callbacks=None,
              colsample_bylevel=None, colsample_bynode=None,
              colsample_bytree=None, device=None, early_stopping_rounds=None,
@@ -42,7 +42,7 @@ model,MAE,RMSE,params
              max_delta_step=None, max_depth=None, max_leaves=None,
              min_child_weight=None, missing=nan, monotone_constraints=None,
              multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",746.0534397211555,1290.3279208896306,"{'colsample_bytree': 0.7763839879877599, 'gamma': 0.15995857658465223, 'learning_rate': 0.0449484798169904, 'max_depth': 9, 'n_estimators': 89, 'reg_alpha': 0.14857916769121837, 'reg_lambda': 0.18692342424416425, 'subsample': 0.8676360619228729}"
+             num_parallel_tree=None, random_state=None, ...)",88.89979982992168,116.07908299002705,"{'colsample_bytree': np.float64(0.7677850419719032), 'gamma': np.float64(0.07963907674805265), 'learning_rate': np.float64(0.10148554094748859), 'max_depth': 5, 'n_estimators': 75, 'reg_alpha': np.float64(0.46281489839848894), 'reg_lambda': np.float64(0.12641243323545776), 'subsample': np.float64(0.5247158745773726)}"
 "XGBRegressor(base_score=None, booster=None, callbacks=None,
              colsample_bylevel=None, colsample_bynode=None,
              colsample_bytree=None, device=None, early_stopping_rounds=None,
@@ -53,60 +53,4 @@ model,MAE,RMSE,params
              max_delta_step=None, max_depth=None, max_leaves=None,
              min_child_weight=None, missing=nan, monotone_constraints=None,
              multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",725.6371806835208,1272.375917848933,"{'colsample_bytree': 0.8237144912311207, 'gamma': 0.2112629897833972, 'learning_rate': 0.10470961170996185, 'max_depth': 15, 'n_estimators': 74, 'reg_alpha': 0.37000036866051067, 'reg_lambda': 0.007962698522935907, 'subsample': 0.6663036805123853}"
-model,MAE,RMSE,params
-"XGBRegressor(base_score=None, booster=None, callbacks=None,
-             colsample_bylevel=None, colsample_bynode=None,
-             colsample_bytree=None, device=None, early_stopping_rounds=None,
-             enable_categorical=False, eval_metric=None, feature_types=None,
-             gamma=None, grow_policy=None, importance_type=None,
-             interaction_constraints=None, learning_rate=None, max_bin=None,
-             max_cat_threshold=None, max_cat_to_onehot=None,
-             max_delta_step=None, max_depth=None, max_leaves=None,
-             min_child_weight=None, missing=nan, monotone_constraints=None,
-             multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",134.23192738678495,161.70803089651795,"{'colsample_bytree': np.float64(0.8751066514766339), 'gamma': np.float64(0.16818167523220662), 'learning_rate': np.float64(0.05712606497679705), 'max_depth': 4, 'n_estimators': 51, 'reg_alpha': np.float64(0.43490118800587857), 'reg_lambda': np.float64(0.18431270733966665), 'subsample': np.float64(0.5474328312394807)}"
-"XGBRegressor(base_score=None, booster=None, callbacks=None,
-             colsample_bylevel=None, colsample_bynode=None,
-             colsample_bytree=None, device=None, early_stopping_rounds=None,
-             enable_categorical=False, eval_metric=None, feature_types=None,
-             gamma=None, grow_policy=None, importance_type=None,
-             interaction_constraints=None, learning_rate=None, max_bin=None,
-             max_cat_threshold=None, max_cat_to_onehot=None,
-             max_delta_step=None, max_depth=None, max_leaves=None,
-             min_child_weight=None, missing=nan, monotone_constraints=None,
-             multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",115.98695295948093,145.50870073696404,"{'colsample_bytree': np.float64(0.8906452289570015), 'gamma': np.float64(0.10669662799959706), 'learning_rate': np.float64(0.045885391240277726), 'max_depth': 15, 'n_estimators': 96, 'reg_alpha': np.float64(0.288849310803141), 'reg_lambda': np.float64(0.1900529560176134), 'subsample': np.float64(0.5241705645075243)}"
-"XGBRegressor(base_score=None, booster=None, callbacks=None,
-             colsample_bylevel=None, colsample_bynode=None,
-             colsample_bytree=None, device=None, early_stopping_rounds=None,
-             enable_categorical=False, eval_metric=None, feature_types=None,
-             gamma=None, grow_policy=None, importance_type=None,
-             interaction_constraints=None, learning_rate=None, max_bin=None,
-             max_cat_threshold=None, max_cat_to_onehot=None,
-             max_delta_step=None, max_depth=None, max_leaves=None,
-             min_child_weight=None, missing=nan, monotone_constraints=None,
-             multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",130.5518364340572,159.81064498812063,"{'colsample_bytree': np.float64(0.7592698722226102), 'gamma': np.float64(0.31609219659486265), 'learning_rate': np.float64(0.07601437623115746), 'max_depth': 2, 'n_estimators': 87, 'reg_alpha': np.float64(0.2758861085585976), 'reg_lambda': np.float64(0.20718059711203507), 'subsample': np.float64(0.8991741112440934)}"
-"XGBRegressor(base_score=None, booster=None, callbacks=None,
-             colsample_bylevel=None, colsample_bynode=None,
-             colsample_bytree=None, device=None, early_stopping_rounds=None,
-             enable_categorical=False, eval_metric=None, feature_types=None,
-             gamma=None, grow_policy=None, importance_type=None,
-             interaction_constraints=None, learning_rate=None, max_bin=None,
-             max_cat_threshold=None, max_cat_to_onehot=None,
-             max_delta_step=None, max_depth=None, max_leaves=None,
-             min_child_weight=None, missing=nan, monotone_constraints=None,
-             multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",138.0288603184587,170.04311521526003,"{'colsample_bytree': np.float64(0.7935339210988364), 'gamma': np.float64(0.2735944598929348), 'learning_rate': np.float64(0.10964563768405512), 'max_depth': 5, 'n_estimators': 36, 'reg_alpha': np.float64(0.4136984736516216), 'reg_lambda': np.float64(0.04940426012404331), 'subsample': np.float64(0.8186584488972437)}"
-"XGBRegressor(base_score=None, booster=None, callbacks=None,
-             colsample_bylevel=None, colsample_bynode=None,
-             colsample_bytree=None, device=None, early_stopping_rounds=None,
-             enable_categorical=False, eval_metric=None, feature_types=None,
-             gamma=None, grow_policy=None, importance_type=None,
-             interaction_constraints=None, learning_rate=None, max_bin=None,
-             max_cat_threshold=None, max_cat_to_onehot=None,
-             max_delta_step=None, max_depth=None, max_leaves=None,
-             min_child_weight=None, missing=nan, monotone_constraints=None,
-             multi_strategy=None, n_estimators=None, n_jobs=None,
-             num_parallel_tree=None, random_state=None, ...)",134.25176898503707,158.4066188964975,"{'colsample_bytree': np.float64(0.9310240856764196), 'gamma': np.float64(0.2943370818686259), 'learning_rate': np.float64(0.08728153248910063), 'max_depth': 18, 'n_estimators': 91, 'reg_alpha': np.float64(0.49164429805951493), 'reg_lambda': np.float64(0.3004086392450347), 'subsample': np.float64(0.6815548028531918)}"
+             num_parallel_tree=None, random_state=None, ...)",75.12745181534642,104.61739449355206,"{'colsample_bytree': np.float64(0.8937970906185244), 'gamma': np.float64(0.2601267241295943), 'learning_rate': np.float64(0.07154737518381205), 'max_depth': 16, 'n_estimators': 29, 'reg_alpha': np.float64(0.37778137608911744), 'reg_lambda': np.float64(0.46789462050999264), 'subsample': np.float64(0.8788974436136212)}"
