@@ -66,6 +66,7 @@ def plot_actual_vs_pred(ax, y_true, y_pred, param_dict, fig_path=None):
         Adds a 45° line to estimate the precision of individual predictions.
         return the plot object for further manipulation/investigation
     """
+    
     ax.scatter(y_true, y_pred, alpha=0.5)
     # add a 45 degree line
     ax.plot([y_true.min(), y_true.max()], [y_true.min(), y_true.max()], "k--", lw=4)

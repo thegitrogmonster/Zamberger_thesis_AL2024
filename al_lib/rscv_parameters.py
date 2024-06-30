@@ -38,10 +38,10 @@ mlp_rscv_parameters = {
     "hidden_layer_sizes": randint(low=50, high=200),  # number of neurons in each layer
     "activation": ["identity", "logistic", "tanh", "relu"],
     "solver": ["lbfgs", "sgd", "adam"],
-    "alpha": uniform(loc=0.0001, scale=0.1),
-    "early_stopping": [True],
+    "alpha": loguniform(a=1e-6, b=1e6),
+    "early_stopping": [True, False],
     "validation_fraction": uniform(loc=0.1, scale=0.1),
-    "max_iter": randint(low=100, high=500),
+    "max_iter": randint(low=200, high=500),
 }
 
 # xgboost
@@ -65,20 +65,3 @@ hgb_rscv_parameters = {
     "min_samples_leaf": randint(low=1, high=40),
 }
 
-# Grid Search Parameters
-
-# Random Forest
-rf_gscv_parameters = {
-    "n_estimators": [],  # for hyperparameter with discrete values
-    "min_samples_split": [],
-    "max_features": [],
-    "max_depth": [],
-}
-# Partial Least Squares
-pls_gscv_parameters = {}
-# KRR-RBF
-krr_gscv_parameters = {}
-# MLP
-mlp_gscv_parameters = {}
-# xgboost
-xgb_gscv_parameters = {}
