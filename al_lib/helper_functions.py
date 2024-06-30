@@ -127,6 +127,9 @@ def plot_feature_importance(ax, model, X_train, param_dict, fig_path):
 def import_dpsDeriv1200(datafile):
     """
     Import and perform the necessary preprocessing steps on the dataset "dpsDeriv1200".
+    Preprocessing steps:
+    - Import the dataset
+    - Rename the columns: remove the "X" in the column names
 
     Parameters
     ----------
@@ -287,12 +290,15 @@ def _rnd_initial_sampling(
     assert all(y_Pool.index == X_Pool.index)
     return X_Learned, y_Learned, X_Pool, y_Pool
 
-def _create_test_data():
+def _create_test_data(n=100, logging = None):
     """
-    Create a synthetic dataset for testing purposes.
+    Create a synthetic dataset for testing purposes. 
+    The dataset contains n (default: 100) samples with 3 features and 1 target variable.
+    The data is split into training(), test, and validation sets.
 
     Returns
     -------
+
     X_train, X_test, X_val, y_train, y_test, y_val
     """
     # Create a synthetic dataset
@@ -320,6 +326,7 @@ def _create_test_data():
     X_train, X_test, y_train, y_test = train_test_split(
     X_remainder, y_remainder, test_size=test_size, random_state=random_state
     )
+    calc_set_sizes(X_train, X_test, X_val, logging = logging)
     return X_train, X_test, X_val, y_train, y_test, y_val
 
 def _test_params_krr():
