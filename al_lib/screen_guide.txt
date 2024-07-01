@@ -1,0 +1,29 @@
+run py with screen
+
+# see current running screen sessions 
+screen -ls
+
+# start a new screen session
+screen -S <session_name>
+
+# navigate to path
+cd /path/to/your/project
+
+# activate the conda env
+
+conda activate <env>
+
+# convert ipynb to py
+jupyter nbconvert --to script your_notebook.ipynb
+
+# run the python file from command line
+python your_notebook.py
+
+# detach from Screen session
+press [Ctrl]+[A], then D to detach from and leave the process rinning in the bkacground
+
+# reattach  screen session, to see if still runing
+screen -r <session_name>
+
+# exit a session (ends it, if nothing is runnign)
+exit
