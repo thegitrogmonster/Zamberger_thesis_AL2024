@@ -8,7 +8,9 @@ Random sampling in an active learning framework is used as the baseline for the 
 
 The code is developed with functionalities from scikit-learn [[1]](#1), especially RandomSearchCV, GridSearchCV, as well as most statistical models. 
 
-The application for active learning in this scenario will be based on the assumption that a sufficiantly well known model space exists. To represent a few examples of modelbuilding, a few sci-kit learn Regression Methods are tested, as well as XGBoost[[2]](#2). 
+The application for active learning in this scenario will be based on the assumption that a sufficiantly well known model space exists. To represent a few examples of modelbuilding, some sci-kit learn Regression Methods are tested, as well as XGBoost[[2]](#2). 
+
+For the active Learning some selection strategies are implemented, but could be extendend with another function definition in the al_lib/selection_criteria.py file.
 
 <!-- USAGE -->
 # Usage 
