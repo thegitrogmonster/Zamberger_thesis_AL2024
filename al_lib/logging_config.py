@@ -14,8 +14,8 @@ def create_logger(name="root", log_file_path="log_file.txt"):
     # Add the handlers (file and console)
     file_handler = RotatingFileHandler(
         filename=log_file_path,  # accepts also the path to the file since v3.6
-        maxBytes=20000,
-        backupCount=3,
+        maxBytes=200000,
+        backupCount=5,
     )
     console_handler = logging.StreamHandler()
     # console = logging.StreamHandler(sys.stdout)
