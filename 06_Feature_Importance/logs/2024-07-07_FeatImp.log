@@ -1,0 +1,27 @@
+2024-07-07 23:12:53 - INFO - Logging started
+2024-07-07 23:12:53 - INFO - log stored at: ../06_Feature_Importance/logs/2024-07-07_FeatImp.log
+2024-07-07 23:12:58 - INFO - Data loaded and preprocessed from ../data/dpsDeriv1200.csv
+2024-07-07 23:12:58 - INFO - Split of the dataset into Train/Test/Validation set
+2024-07-07 23:12:58 - INFO - Shapes of Train/Test/Validation set verified
+2024-07-07 23:12:58 - INFO - X_train: (812, 410), y_train: (812,)
+2024-07-07 23:12:58 - INFO - Training set: 812 (62.95%)
+2024-07-07 23:12:58 - INFO - Test set: 349 (27.05%)
+2024-07-07 23:12:58 - INFO - Validation set: 129 (10.0%)
+2024-07-07 23:16:13 - INFO - Loaded the rscv results: hgb from ../03_Modelling/03_1_rscv/rscv_results/hgb_rscv_results.csv
+2024-07-07 23:16:13 - INFO - Loaded the gscv results: krr from ../03_Modelling/03_2_gscv/gscv_results/krr_gscv_results.csv
+2024-07-07 23:16:13 - INFO - Loaded the gscv results: mlp from ../03_Modelling/03_2_gscv/gscv_results/mlp_gscv_results.csv
+2024-07-07 23:16:13 - INFO - Loaded the gscv results: pls from ../03_Modelling/03_2_gscv/gscv_results/pls_gscv_results.csv
+2024-07-07 23:16:13 - INFO - Loaded the gscv results: rf from ../03_Modelling/03_2_gscv/gscv_results/rf_gscv_results.csv
+2024-07-07 23:16:13 - INFO - Loaded the rscv results: xgb from ../03_Modelling/03_1_rscv/rscv_results/xgb_rscv_results.csv
+2024-07-07 23:16:36 - INFO - Optimal parameters (GSCV) for hgb with RMSE 97.0: {'learning_rate': np.float64(0.04262389603635252), 'loss': 'squared_error', 'max_iter': 267, 'max_leaf_nodes': 16, 'min_samples_leaf': 8}
+2024-07-07 23:16:36 - INFO - Optimal parameters (GSCV) for krr with RMSE 101.0: {'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}
+2024-07-07 23:16:36 - INFO - Optimal parameters (GSCV) for mlp with RMSE 138.0: {'activation': 'identity', 'alpha': np.float64(0.030087981364603892), 'early_stopping': np.True_, 'hidden_layer_sizes': np.int64(195), 'solver': 'lbfgs', 'validation_fraction': np.float64(0.1381305094147183)}
+2024-07-07 23:16:36 - INFO - Optimal parameters (GSCV) for pls with RMSE 110.0: {'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(14), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}
+2024-07-07 23:16:36 - INFO - Optimal parameters (GSCV) for rf with RMSE 117.0: {'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}
+2024-07-07 23:16:36 - INFO - Optimal parameters (GSCV) for xgb with RMSE 104.0: {'colsample_bytree': np.float64(0.9024510488355479), 'gamma': np.float64(0.24338297203210052), 'learning_rate': np.float64(0.08035726078424349), 'max_depth': 6, 'n_estimators': 92, 'reg_alpha': np.float64(0.08686856214001293), 'reg_lambda': np.float64(0.49919891319367615), 'subsample': np.float64(0.5723214510143011)}
+2024-07-07 23:16:50 - INFO - Optimal parameters for hgb: {'learning_rate': np.float64(0.04262389603635252), 'loss': 'squared_error', 'max_iter': 267, 'max_leaf_nodes': 16, 'min_samples_leaf': 8}
+2024-07-07 23:16:50 - INFO - Optimal parameters for krr: {'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}
+2024-07-07 23:16:50 - INFO - Optimal parameters for mlp: {'activation': 'identity', 'alpha': np.float64(0.030087981364603892), 'early_stopping': np.True_, 'hidden_layer_sizes': np.int64(195), 'solver': 'lbfgs', 'validation_fraction': np.float64(0.1381305094147183)}
+2024-07-07 23:16:50 - INFO - Optimal parameters for pls: {'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(14), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}
+2024-07-07 23:16:50 - INFO - Optimal parameters for rf: {'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}
+2024-07-07 23:16:50 - INFO - Optimal parameters for xgb: {'colsample_bytree': np.float64(0.9024510488355479), 'gamma': np.float64(0.24338297203210052), 'learning_rate': np.float64(0.08035726078424349), 'max_depth': 6, 'n_estimators': 92, 'reg_alpha': np.float64(0.08686856214001293), 'reg_lambda': np.float64(0.49919891319367615), 'subsample': np.float64(0.5723214510143011)}

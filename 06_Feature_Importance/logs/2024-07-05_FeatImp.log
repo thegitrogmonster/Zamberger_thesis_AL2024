@@ -1,0 +1,12 @@
+2024-07-05 00:04:46 - INFO - Logging started
+2024-07-05 00:04:46 - INFO - log stored at: ../06_Feature_Importance/logs/2024-07-05_FeatImp.log
+2024-07-05 00:07:29 - INFO - Data loaded and preprocessed from ../data/dpsDeriv1200.csv
+2024-07-05 00:08:34 - INFO - Logging started
+2024-07-05 00:08:34 - INFO - log stored at: ../06_Feature_Importance/logs/2024-07-05_FeatImp.log
+2024-07-05 00:08:34 - INFO - Data loaded and preprocessed from ../data/dpsDeriv1200.csv
+2024-07-05 00:08:34 - INFO - Split of the dataset into Train/Test/Validation set
+2024-07-05 00:08:34 - INFO - Shapes of Train/Test/Validation set verified
+2024-07-05 00:08:34 - INFO - X_train: (812, 410), y_train: (812,)
+2024-07-05 00:08:34 - INFO - Training set: 812 (62.95%)
+2024-07-05 00:08:34 - INFO - Test set: 349 (27.05%)
+2024-07-05 00:08:34 - INFO - Validation set: 129 (10.0%)
