@@ -99,9 +99,9 @@ def _uncertainty_selection(
     predictions = None
     predictions = pd.DataFrame(index=X_Pool.index, columns=range(n_fold))
     # pred_uncertainty.index = X_Pool.index
-    logging.info(
-        f"Shape X_Pool:{X_Pool.shape}" + f"Shape y_Pool{y_Pool.shape} before sss"
-    )
+    # logging.info(
+    #     f"Shape X_Pool:{X_Pool.shape}" + f"Shape y_Pool{y_Pool.shape} before sss"
+    # )
 
     # generate the n-fold splits for X_Pool and y_Pool
     ss = ShuffleSplit(n_splits=n_fold, test_size=0.7, random_state=random_state)
@@ -131,3 +131,129 @@ def _uncertainty_selection(
     sample_id = predictions["std"].idxmax()
     uncertainty_for_id = predictions["std"].max()
     return sample_id, uncertainty_for_id
+
+def _distance_weighing(
+    X_Pool, y_Pool, X_Learned, y_Learned, random_state, model, n_fold, logging, n_jobs, *args, **kwargs
+) -> (int, float):
+    """IDEAL Distance weighing selection strategy,
+    see Bemporad et al. 2019
+
+    Ideal distance weighing selection strategy to select samples weighted by 
+    the distance to the samples in the training set. The aquisition function
+    integrates the uncertainty for each sample to promote exploration, and the 
+    squared euclidean distance to the samples in the training set to promote exploitation.
+
+    alternative weight decay function:
+    wk(x) = exp(-d^2(x, X_learned)^2) / (d^2(x, X_learned))	
+    
+    Normalized weights:
+    vk(x)
+    vk(x) = wk(x)/sum(wk(x))
+
+    IDW variance function: 
+    s2(x) = sum(vk(x) * (y_learned - y_pred(x))^2)
+
+    IDW distance function, euclidean distance, for pure exploration:
+    z(x) = d(x, X_learned)
+
+    Acquisiton function:
+    aq(x) = (1 + omega * rho(x)) * sum((c(x) * (s2(x) + delta * z(x)))
+        where 
+            omega: trade off between exploration and exploitation
+                default  = 0.5, balanced exploration and exploitation
+            rho(x): uncertainty of the sample x (IDW variance of the prediction)
+            sum(): sum over all samples in the pool
+            c(x): weight function between 0 and 1, uniform: c(x) = 1
+            delta: trade off between exploration and exploitation,
+                 default  = 0.0, aquisition purely based on IDW variance
+
+            
+    Parameters:
+        X_Pool (pd.DataFrame): Variables of Samples currently available to be selected
+        y_Pool (pd.DataFrame): Target values of Samples currently available to be selected
+        X_Learned (pd.DataFrame): Variables of Samples already included in the modelling
+        y_Learned (pd.DataFrame): Target values of Samples already included in the modelling
+        y_pred_pool (pd.DataFrame): Predictions of the model for the samples in X_Pool
+        random_state (int): Seed for the random number generator
+        model (object): Model object, fitted on the training set previously
+        n_fold (int): Number of folds for the cross-validation
+        logging (object): Logging object
+        n_jobs (int): Number of cores used for processing
+
+    Returns:
+        sample_id (int): Index of the sample in X_Pool with the highest uncertainty
+        uncertainty_for_id (float): Uncertainty of the sample with the highest uncertainty
+    """
+    # Prepare a df for the IDW acquisition function one row per sample in X_Pool
+    df_idw = pd.DataFrame(index=X_Pool.index)
+    # generate a column for each variable in the aquisition function
+    df_idw["rho"] = 0
+    df_idw["c"] = 1
+    df_idw["s2"] = 0
+    df_idw["z"] = 0
+
+    distances = euclidean_distances(
+        X_Pool, X_Learned
+    )  # distances : ndarray of shape (n_samples_X, n_samples_Y)
+    distances_df = pd.DataFrame(distances, index=X_Pool.index, columns=X_Learned.index)
+
+    # calculate the std of the predictions for each sample in X_Pool
+    # prepare the predictions df with dim(X_Pool, nfolds)
+    predictions = None
+    predictions = pd.DataFrame(index=X_Pool.index, columns=range(n_fold))
+
+    # generate the n-fold splits for X_Pool and y_Pool
+    ss = ShuffleSplit(n_splits=n_fold, test_size=0.7, random_state=random_state)
+    ss.get_n_splits(X_Pool, y_Pool)
+
+    for n_fold, (train_index, test_index) in enumerate(ss.split(X_Pool, y_Pool)):
+        # logging.info(f"size of individual split: {len(train_index), len(test_index)}")
+        # merge the X_Learned and the current split of X_Pool into a new training set
+        X_train_fold = pd.concat([X_Learned, X_Pool.iloc[train_index]])
+        y_train_fold = pd.concat([y_Learned, y_Pool.iloc[train_index]])
+        # logging.info(f"Shapes: n_Fold: {n_fold} X_train_fold :{X_train_fold.shape}"+f"Shape y_train_fold{y_train_fold.shape} during sss")
+        # fit the model on the new training set
+        model.fit(X_train_fold, y_train_fold)
+
+        # predict the test set and save the predictions in the predictions df
+        y_pred_new = model.predict(X_Pool.iloc[test_index])
+
+        # get the index of the predictions
+        y_pred_index = X_Pool.index[test_index]
+        # merge the predictions with the predictions df
+        predictions.loc[y_pred_index, n_fold] = y_pred_new
+
+    # calculate the std of the predictions
+    predictions["std"] = predictions.std(axis=1)
+
+    # wk(x)
+    wk = np.exp(-distances_df**2) / distances_df
+
+    # vk(x)
+    vk = wk / wk.sum(axis=1)
+
+    # s2(x)
+    y_pred_Learned = model.predict(X_Learned)
+    s2 = (vk * (y_Learned - y_pred_Learned)**2).sum(axis=1)
+
+    # z(x)
+    z = distances_df.sum(axis=1)
+
+    # aq(x)
+    if "omega" in kwargs:
+        omega = kwargs["omega"]
+    else:
+        omega = 0.5 #balanced exploration and exploitation
+    
+    if "delta" in kwargs:
+        delta = kwargs["delta"]
+    else:
+        delta = 0.0 # purely based on IDW variance
+
+    aq = (1 + omega * predictions["std"]) * (vk * (s2 + 0 * z)).sum(axis=1)
+
+    # identify the sample with the highest aq
+    sample_id = aq.idxmax()
+    idw_for_id = aq.max()
+
+    return sample_id, idw_for_id
