@@ -122,6 +122,7 @@ def plot_feature_importance(ax, model, X_train, param_dict, fig_path):
     else:
         pass
     plt.show()
+    return indices, feature_importance
 
 
 def import_dpsDeriv1200(datafile):
@@ -346,3 +347,52 @@ def _test_params_krr():
         "coef0": 1,
     }
     return params
+
+def _get_optimal_params_from_cv(models, gscv_results_dir, rscv_results_dir, logging = None): 
+    models_available = {}
+    optimal_params = {}
+    rmse_from_cv = {}
+    for model in models:
+
+        try:
+            gscv_results = pd.read_csv(gscv_results_dir + f"{model}_gscv_results.csv")
+            # id the best parameters via min of RMSE
+            opt_run = gscv_results.loc[gscv_results["RMSE"].idxmin()]
+            # extract the optimal parameters
+            optimal_params[model] = opt_run["params"]
+            # convert the parameters to a dictionary
+            optimal_params[model] = eval(optimal_params[model])
+            # retrieve the optimal RMSE
+            rmse_from_cv[model] = opt_run["RMSE"]
+            # convert the RMSE to a float, round, and assign integer value
+            rmse_from_cv[model] = round(float(rmse_from_cv[model]), 0)
+            models_available[model] = True
+            if logging is not None:
+                logging.info(
+                    f"Loaded the gscv results: {model} from {gscv_results_dir + f'{model}_gscv_results.csv'}"
+                )
+        except FileNotFoundError:
+            try:  # try to load the results of the rscv as a dataframe
+                rscv_results = pd.read_csv(rscv_results_dir + f"{model}_rscv_results.csv")
+                # id the best parameters via min of RMSE
+                opt_run = rscv_results.loc[rscv_results["RMSE"].idxmin()]
+                # extract the optimal parameters
+                optimal_params[model] = opt_run["params"]
+                # convert the parameters to a dictionary
+                optimal_params[model] = eval(optimal_params[model])
+                # retrieve the optimal RMSE
+                rmse_from_cv[model] = opt_run["RMSE"]
+                # convert the RMSE to a float, round, and assign integer value
+                rmse_from_cv[model] = round(float(rmse_from_cv[model]), 0)
+                models_available[model] = True
+                if logging is not None:
+                    logging.info(
+                        f"Loaded the rscv results: {model} from {rscv_results_dir + f'{model}_rscv_results.csv'}"
+                    )
+            except FileNotFoundError:
+                models_available[model] = False
+                if logging is not None:
+                    logging.error(
+                        f"Error loading the rscv results: {model} from {rscv_results_dir + f'{model}_rscv_results.csv'}"
+                    )
+    return optimal_params, rmse_from_cv, models_available
