@@ -98,10 +98,9 @@ def _uncertainty_selection(
     # prepare the predictions df with dim(X_Pool, nfolds)
     predictions = None
     predictions = pd.DataFrame(index=X_Pool.index, columns=range(n_fold))
-    # pred_uncertainty.index = X_Pool.index
-    # logging.info(
-    #     f"Shape X_Pool:{X_Pool.shape}" + f"Shape y_Pool{y_Pool.shape} before sss"
-    # )
+
+    # Generate pseudo-targets for X_Pool using the provided model
+    y_Pool_pred = model.predict(X_Pool)
 
     # generate the n-fold splits for X_Pool and y_Pool
     ss = ShuffleSplit(n_splits=n_fold, test_size=0.7, random_state=random_state)
@@ -111,8 +110,8 @@ def _uncertainty_selection(
         # logging.info(f"size of individual split: {len(train_index), len(test_index)}")
         # merge the X_Learned and the current split of X_Pool into a new training set
         X_train_fold = pd.concat([X_Learned, X_Pool.iloc[train_index]])
-        y_train_fold = pd.concat([y_Learned, y_Pool.iloc[train_index]])
-        # logging.info(f"Shapes: n_Fold: {n_fold} X_train_fold :{X_train_fold.shape}"+f"Shape y_train_fold{y_train_fold.shape} during sss")
+        y_train_fold = pd.concat([y_Learned, pd.Series(y_Pool_pred[train_index], index=train_index)])
+
         # fit the model on the new training set
         model.fit(X_train_fold, y_train_fold)
 
