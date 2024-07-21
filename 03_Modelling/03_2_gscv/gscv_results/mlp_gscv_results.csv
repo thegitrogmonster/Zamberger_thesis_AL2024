@@ -1,0 +1,6 @@
+model,MAE,RMSE,params
+MLPRegressor(),107.17843063996861,137.7168707476238,"{'activation': 'identity', 'alpha': np.float64(0.030087981364603892), 'early_stopping': np.True_, 'hidden_layer_sizes': np.int64(195), 'solver': 'lbfgs', 'validation_fraction': np.float64(0.1381305094147183)}"
+MLPRegressor(),111.44153561618101,142.07508124870566,"{'activation': 'identity', 'alpha': np.float64(0.015113245084480986), 'early_stopping': np.False_, 'hidden_layer_sizes': np.int64(58), 'solver': 'lbfgs', 'validation_fraction': np.float64(0.12037786718621497)}"
+model,MAE,RMSE,params
+MLPRegressor(),114.02814908443648,144.82927844697508,"{'activation': 'identity', 'alpha': np.float64(0.015113245084480986), 'early_stopping': np.False_, 'hidden_layer_sizes': np.int64(126), 'solver': 'lbfgs', 'validation_fraction': np.float64(0.1381305094147183)}"
+MLPRegressor(),145.29690198459184,180.9824816481877,"{'activation': 'identity', 'alpha': np.float64(0.0450627176447268), 'early_stopping': np.True_, 'hidden_layer_sizes': np.int64(58), 'solver': 'lbfgs', 'validation_fraction': np.float64(0.19138843610022832)}"

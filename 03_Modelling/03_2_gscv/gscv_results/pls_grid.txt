@@ -1,0 +1,1 @@
+gscv_parameters = {'copy': array([ True]), 'max_iter': array([201, 266, 330, 394, 459]), 'n_components': array([12, 13, 14, 15]), 'scale': array([False]), 'tol': array([0.30006406, 0.32350801, 0.34695195, 0.37039589, 0.39383984])}

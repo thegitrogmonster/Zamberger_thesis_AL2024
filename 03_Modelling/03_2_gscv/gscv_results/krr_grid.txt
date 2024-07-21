@@ -1,0 +1,3 @@
+gscv_parameters = {'alpha': array([1.17795506e-06, 1.69358988e-04, 3.37540021e-04, 5.05721054e-04,
+       6.73902087e-04]), 'gamma': array([9.66903045e+00, 2.43843479e+04, 4.87590267e+04, 7.31337055e+04,
+       9.75083844e+04]), 'kernel': array(['linear', 'poly', 'polynomial', 'rbf'], dtype=object)}

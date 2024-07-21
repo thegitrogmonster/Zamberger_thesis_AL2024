@@ -1,0 +1,34 @@
+model,MAE,RMSE,params
+KernelRidge(),84.38362291552846,111.1181972526956,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+KernelRidge(),87.75007994951757,116.33974583512637,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+model,MAE,RMSE,params
+KernelRidge(),86.01188591537638,112.31033626193988,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+KernelRidge(),91.03361882643495,132.33285108979442,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+model,MAE,RMSE,params
+KernelRidge(),90.18111915364688,119.14114899642442,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+KernelRidge(),85.3497252526158,115.31331383722893,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+model,MAE,RMSE,params
+KernelRidge(),86.01188591537638,112.31033626193988,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+KernelRidge(),91.03361882643495,132.33285108979442,"{'alpha': np.float64(1.5671774108256708e-06), 'gamma': np.float64(67.59172382911353), 'kernel': 'rbf'}"
+model,MAE,RMSE,params
+KernelRidge(),91.51482051280891,118.99809374424697,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(73133.70552218906), 'kernel': 'rbf'}"
+KernelRidge(),83.77719383809476,111.42989570897988,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+model,MAE,RMSE,params
+KernelRidge(),85.80093239643755,111.10678514534327,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(48759.026691609346), 'kernel': 'rbf'}"
+KernelRidge(),84.56138036418785,110.3028151560775,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(73133.70552218906), 'kernel': 'rbf'}"
+model,MAE,RMSE,params
+KernelRidge(),75.77895841722226,100.68754798444854,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),74.25946137239777,96.73590713061952,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),75.21171419825343,97.46232100220006,"{'alpha': np.float64(0.0005057210538251288), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),75.66176577926798,99.45100445801313,"{'alpha': np.float64(0.0005057210538251288), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),76.7644720666706,98.6666093453122,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),78.50666771312609,103.45610146067324,"{'alpha': np.float64(0.0005057210538251288), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),74.89747898276686,97.4340053575414,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),78.18464029660043,101.30723425504002,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),73.74470815237136,98.18313890682971,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),77.79982849530408,102.67358106577366,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),75.3736326014942,99.51133412573195,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),78.41899629347115,102.32308706900757,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),74.80567663418518,97.90860179971263,"{'alpha': np.float64(0.00033754002090266604), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),75.47172952226677,99.60335283701947,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"
+KernelRidge(),77.33908473904447,100.8428517407182,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"

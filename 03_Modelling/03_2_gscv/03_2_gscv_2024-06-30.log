@@ -1,0 +1,166 @@
+2024-06-30 14:59:08 - INFO - datatype of values in Column scale : bool
+2024-06-30 14:59:08 - INFO - datatype of values in Column tol : float64
+2024-06-30 14:59:08 - INFO - Grid saved as ../03_Modelling/03_2_gscv/gscv_results/pls_grid.txt
+2024-06-30 14:59:08 - INFO - Grid for PLS: {'copy': array([ True]), 'max_iter': array([201, 266, 330, 394, 459]), 'n_components': array([12, 13, 14, 15]), 'scale': array([False]), 'tol': array([0.30006406, 0.32350801, 0.34695195, 0.37039589, 0.39383984])}
+2024-06-30 14:59:08 - INFO - Results file: ../03_Modelling/03_2_gscv/gscv_results/pls_gscv_results.csv
+2024-06-30 14:59:08 - INFO - Features: (1290, 410), Target: (1290,), Model: PLSRegression(), Param_distributions: {'copy': array([ True]), 'max_iter': array([201, 266, 330, 394, 459]), 'n_components': array([12, 13, 14, 15]), 'scale': array([False]), 'tol': array([0.30006406, 0.32350801, 0.34695195, 0.37039589, 0.39383984])}, Results File: ../03_Modelling/03_2_gscv/gscv_results/pls_gscv_results.csv Random_state: RandomState(MT19937), NoTrials: 2, nfolds: 2, n_jobs: 20, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 14:59:08 - INFO - Trial: 0 out of 2
+2024-06-30 14:59:14 - INFO - Trial: 1 out of 2
+2024-06-30 14:59:21 - INFO - Loaded and parsed ../03_Modelling/03_1_rscv/rscv_results/krr_rscv_results.csv successfully.
+2024-06-30 14:59:21 - INFO - datatype of values in Column model : object
+2024-06-30 14:59:21 - INFO - datatype of values in Column MAE : float64
+2024-06-30 14:59:21 - INFO - datatype of values in Column RMSE : float64
+2024-06-30 14:59:21 - INFO - datatype of values in Column alpha : float64
+2024-06-30 14:59:21 - INFO - datatype of values in Column gamma : float64
+2024-06-30 14:59:21 - INFO - datatype of values in Column kernel : object
+2024-06-30 14:59:21 - INFO - Grid saved as ../03_Modelling/03_2_gscv/gscv_results/krr_grid.txt
+2024-06-30 14:59:21 - INFO - Grid for krr: {'alpha': array([1.17795506e-06, 1.69358988e-04, 3.37540021e-04, 5.05721054e-04,
+       6.73902087e-04]), 'gamma': array([9.66903045e+00, 2.43843479e+04, 4.87590267e+04, 7.31337055e+04,
+       9.75083844e+04]), 'kernel': array(['linear', 'poly', 'polynomial', 'rbf'], dtype=object)}
+2024-06-30 14:59:21 - INFO - Results file: ../03_Modelling/03_2_gscv/gscv_results/krr_gscv_results.csv
+2024-06-30 14:59:21 - INFO - Features: (1290, 410), Target: (1290,), Model: KernelRidge(), Param_distributions: {'alpha': array([1.17795506e-06, 1.69358988e-04, 3.37540021e-04, 5.05721054e-04,
+       6.73902087e-04]), 'gamma': array([9.66903045e+00, 2.43843479e+04, 4.87590267e+04, 7.31337055e+04,
+       9.75083844e+04]), 'kernel': array(['linear', 'poly', 'polynomial', 'rbf'], dtype=object)}, Results File: ../03_Modelling/03_2_gscv/gscv_results/krr_gscv_results.csv Random_state: RandomState(MT19937), NoTrials: 2, nfolds: 2, n_jobs: 20, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 14:59:21 - INFO - Trial: 0 out of 2
+2024-06-30 14:59:28 - INFO - Trial: 1 out of 2
+2024-06-30 14:59:36 - INFO - Loaded and parsed ../03_Modelling/03_1_rscv/rscv_results/mlp_rscv_results.csv successfully.
+2024-06-30 14:59:36 - INFO - datatype of values in Column model : object
+2024-06-30 14:59:36 - INFO - datatype of values in Column MAE : float64
+2024-06-30 14:59:36 - INFO - datatype of values in Column RMSE : float64
+2024-06-30 14:59:36 - INFO - datatype of values in Column activation : object
+2024-06-30 14:59:36 - INFO - datatype of values in Column alpha : float64
+2024-06-30 14:59:36 - INFO - datatype of values in Column early_stopping : bool
+2024-06-30 14:59:36 - INFO - datatype of values in Column hidden_layer_sizes : int64
+2024-06-30 14:59:36 - INFO - datatype of values in Column solver : object
+2024-06-30 14:59:36 - INFO - datatype of values in Column validation_fraction : float64
+2024-06-30 14:59:36 - INFO - datatype of values in Column max_iter : float64
+2024-06-30 14:59:36 - INFO - Grid saved as ../03_Modelling/03_2_gscv/gscv_results/mlp_grid.txt
+2024-06-30 14:59:36 - INFO - Grid for mlp {'activation': array(['identity', 'logistic', 'tanh'], dtype=object), 'alpha': array([5.33696480e-05, 7.41941484e+02, 1.48388291e+03, 2.22582434e+03,
+       2.96776578e+03]), 'early_stopping': array([False,  True]), 'hidden_layer_sizes': array([108, 125, 142, 160, 177]), 'solver': array(['lbfgs', 'sgd'], dtype=object), 'validation_fraction': array([0.16268425, 0.16986029, 0.17703634, 0.18421239, 0.19138844]), 'max_iter': array([276, 313, 350, 386, 423])}
+2024-06-30 14:59:36 - INFO - Results file: ../03_Modelling/03_2_gscv/gscv_results//mlp_gscv_results.csv
+2024-06-30 14:59:36 - INFO - Features: (1290, 410), Target: (1290,), Model: MLPRegressor(), Param_distributions: {'activation': array(['identity', 'logistic', 'tanh'], dtype=object), 'alpha': array([5.33696480e-05, 7.41941484e+02, 1.48388291e+03, 2.22582434e+03,
+       2.96776578e+03]), 'early_stopping': array([False,  True]), 'hidden_layer_sizes': array([108, 125, 142, 160, 177]), 'solver': array(['lbfgs', 'sgd'], dtype=object), 'validation_fraction': array([0.16268425, 0.16986029, 0.17703634, 0.18421239, 0.19138844]), 'max_iter': array([276, 313, 350, 386, 423])}, Results File: ../03_Modelling/03_2_gscv/gscv_results//mlp_gscv_results.csv Random_state: RandomState(MT19937), NoTrials: 2, nfolds: 2, n_jobs: 20, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 14:59:36 - INFO - Trial: 0 out of 2
+2024-06-30 15:44:18 - INFO - Logging started
+2024-06-30 15:44:18 - INFO - Dataset: data_dps_deriv_1200
+2024-06-30 15:44:18 - INFO - Size of the dataset: (1290, 415)
+2024-06-30 15:44:18 - INFO - Size of the dataset not reduced: (1290, 415)
+2024-06-30 15:44:18 - INFO - Testing for Cross Validation: False, nfolds: 10, NoTrials: 15, n_jobs: 20
+2024-06-30 15:44:19 - INFO - Number of columns dropped, where std = 0.0 in X: 0
+2024-06-30 15:44:19 - INFO - Dimensions of X after dropping columns with std = 0.0: (1290, 410)
+2024-06-30 15:44:19 - INFO - Dimensions of Y: (1290,)
+2024-06-30 15:44:19 - INFO - random split with testsize 0.3 into training and test sets
+2024-06-30 15:44:19 - INFO - Scorer: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 15:44:19 - INFO - Loaded and parsed ../03_Modelling/03_1_rscv/rscv_results/pls_rscv_results.csv successfully.
+2024-06-30 15:44:19 - INFO - datatype of values in Column model : object
+2024-06-30 15:44:19 - INFO - datatype of values in Column MAE : float64
+2024-06-30 15:44:19 - INFO - datatype of values in Column RMSE : float64
+2024-06-30 15:44:19 - INFO - datatype of values in Column copy : bool
+2024-06-30 15:44:19 - INFO - datatype of values in Column max_iter : int64
+2024-06-30 15:44:19 - INFO - datatype of values in Column n_components : int64
+2024-06-30 15:44:19 - INFO - datatype of values in Column scale : bool
+2024-06-30 15:44:19 - INFO - datatype of values in Column tol : float64
+2024-06-30 15:44:19 - INFO - PLS model instantiated successfully.
+2024-06-30 15:44:19 - INFO - Loaded and parsed ../03_Modelling/03_1_rscv/rscv_results/rf_rscv_results.csv successfully.
+2024-06-30 15:44:19 - INFO - datatype of values in Column model : object
+2024-06-30 15:44:19 - INFO - datatype of values in Column MAE : float64
+2024-06-30 15:44:19 - INFO - datatype of values in Column RMSE : float64
+2024-06-30 15:44:19 - INFO - datatype of values in Column max_depth : int64
+2024-06-30 15:44:19 - INFO - datatype of values in Column max_features : int64
+2024-06-30 15:44:19 - INFO - datatype of values in Column min_samples_split : int64
+2024-06-30 15:44:19 - INFO - datatype of values in Column n_estimators : int64
+2024-06-30 15:44:19 - INFO - Grid saved as ../03_Modelling/03_2_gscv/gscv_results/rf_grid.txt
+2024-06-30 15:44:19 - INFO - Grid for RF {'max_depth': array([12, 13, 14, 16, 17]), 'max_features': array([5, 6, 7]), 'min_samples_split': array([ 6,  7,  8, 10, 11]), 'n_estimators': array([53, 64, 75, 86, 97])}
+2024-06-30 15:44:19 - INFO - Results file: ../03_Modelling/03_2_gscv/gscv_results/rf_gscv_results.csv
+2024-06-30 15:44:19 - INFO - Features: (1290, 410), Target: (1290,), Model: RandomForestRegressor(), Param_distributions: {'max_depth': array([12, 13, 14, 16, 17]), 'max_features': array([5, 6, 7]), 'min_samples_split': array([ 6,  7,  8, 10, 11]), 'n_estimators': array([53, 64, 75, 86, 97])}, Results File: ../03_Modelling/03_2_gscv/gscv_results/rf_gscv_results.csv Random_state: RandomState(MT19937), NoTrials: 15, nfolds: 10, n_jobs: 20, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 15:44:19 - INFO - Trial: 0 out of 15
+2024-06-30 15:59:33 - INFO - Trial: 1 out of 15
+2024-06-30 16:18:24 - INFO - Trial: 2 out of 15
+2024-06-30 16:36:45 - INFO - Trial: 3 out of 15
+2024-06-30 16:51:19 - INFO - Trial: 4 out of 15
+2024-06-30 17:10:17 - INFO - Trial: 5 out of 15
+2024-06-30 17:31:25 - INFO - Trial: 6 out of 15
+2024-06-30 17:49:13 - INFO - Trial: 7 out of 15
+2024-06-30 18:05:29 - INFO - Trial: 8 out of 15
+2024-06-30 18:22:38 - INFO - Trial: 9 out of 15
+2024-06-30 18:37:48 - INFO - Trial: 10 out of 15
+2024-06-30 18:51:22 - INFO - Trial: 11 out of 15
+2024-06-30 19:05:22 - INFO - Trial: 12 out of 15
+2024-06-30 19:17:30 - INFO - Trial: 13 out of 15
+2024-06-30 19:30:44 - INFO - Trial: 14 out of 15
+2024-06-30 19:43:57 - INFO - Loaded and parsed ../03_Modelling/03_1_rscv/rscv_results/pls_rscv_results.csv successfully.
+2024-06-30 19:43:57 - INFO - datatype of values in Column model : object
+2024-06-30 19:43:57 - INFO - datatype of values in Column MAE : float64
+2024-06-30 19:43:57 - INFO - datatype of values in Column RMSE : float64
+2024-06-30 19:43:57 - INFO - datatype of values in Column copy : bool
+2024-06-30 19:43:57 - INFO - datatype of values in Column max_iter : int64
+2024-06-30 19:43:57 - INFO - datatype of values in Column n_components : int64
+2024-06-30 19:43:57 - INFO - datatype of values in Column scale : bool
+2024-06-30 19:43:57 - INFO - datatype of values in Column tol : float64
+2024-06-30 19:43:57 - INFO - Grid saved as ../03_Modelling/03_2_gscv/gscv_results/pls_grid.txt
+2024-06-30 19:43:57 - INFO - Grid for PLS: {'copy': array([ True]), 'max_iter': array([201, 266, 330, 394, 459]), 'n_components': array([12, 13, 14, 15]), 'scale': array([False]), 'tol': array([0.30006406, 0.32350801, 0.34695195, 0.37039589, 0.39383984])}
+2024-06-30 19:43:57 - INFO - Results file: ../03_Modelling/03_2_gscv/gscv_results/pls_gscv_results.csv
+2024-06-30 19:43:57 - INFO - Features: (1290, 410), Target: (1290,), Model: PLSRegression(), Param_distributions: {'copy': array([ True]), 'max_iter': array([201, 266, 330, 394, 459]), 'n_components': array([12, 13, 14, 15]), 'scale': array([False]), 'tol': array([0.30006406, 0.32350801, 0.34695195, 0.37039589, 0.39383984])}, Results File: ../03_Modelling/03_2_gscv/gscv_results/pls_gscv_results.csv Random_state: RandomState(MT19937), NoTrials: 15, nfolds: 10, n_jobs: 20, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 19:43:57 - INFO - Trial: 0 out of 15
+2024-06-30 19:44:38 - INFO - Trial: 1 out of 15
+2024-06-30 19:45:20 - INFO - Trial: 2 out of 15
+2024-06-30 19:46:01 - INFO - Trial: 3 out of 15
+2024-06-30 19:46:42 - INFO - Trial: 4 out of 15
+2024-06-30 19:47:22 - INFO - Trial: 5 out of 15
+2024-06-30 19:48:02 - INFO - Trial: 6 out of 15
+2024-06-30 19:48:43 - INFO - Trial: 7 out of 15
+2024-06-30 19:49:24 - INFO - Trial: 8 out of 15
+2024-06-30 19:50:04 - INFO - Trial: 9 out of 15
+2024-06-30 19:50:46 - INFO - Trial: 10 out of 15
+2024-06-30 19:51:26 - INFO - Trial: 11 out of 15
+2024-06-30 19:52:06 - INFO - Trial: 12 out of 15
+2024-06-30 19:52:47 - INFO - Trial: 13 out of 15
+2024-06-30 19:53:28 - INFO - Trial: 14 out of 15
+2024-06-30 19:54:08 - INFO - Loaded and parsed ../03_Modelling/03_1_rscv/rscv_results/krr_rscv_results.csv successfully.
+2024-06-30 19:54:08 - INFO - datatype of values in Column model : object
+2024-06-30 19:54:08 - INFO - datatype of values in Column MAE : float64
+2024-06-30 19:54:08 - INFO - datatype of values in Column RMSE : float64
+2024-06-30 19:54:08 - INFO - datatype of values in Column alpha : float64
+2024-06-30 19:54:08 - INFO - datatype of values in Column gamma : float64
+2024-06-30 19:54:08 - INFO - datatype of values in Column kernel : object
+2024-06-30 19:54:08 - INFO - Grid saved as ../03_Modelling/03_2_gscv/gscv_results/krr_grid.txt
+2024-06-30 19:54:08 - INFO - Grid for krr: {'alpha': array([1.17795506e-06, 1.69358988e-04, 3.37540021e-04, 5.05721054e-04,
+       6.73902087e-04]), 'gamma': array([9.66903045e+00, 2.43843479e+04, 4.87590267e+04, 7.31337055e+04,
+       9.75083844e+04]), 'kernel': array(['linear', 'poly', 'polynomial', 'rbf'], dtype=object)}
+2024-06-30 19:54:08 - INFO - Results file: ../03_Modelling/03_2_gscv/gscv_results/krr_gscv_results.csv
+2024-06-30 19:54:08 - INFO - Features: (1290, 410), Target: (1290,), Model: KernelRidge(), Param_distributions: {'alpha': array([1.17795506e-06, 1.69358988e-04, 3.37540021e-04, 5.05721054e-04,
+       6.73902087e-04]), 'gamma': array([9.66903045e+00, 2.43843479e+04, 4.87590267e+04, 7.31337055e+04,
+       9.75083844e+04]), 'kernel': array(['linear', 'poly', 'polynomial', 'rbf'], dtype=object)}, Results File: ../03_Modelling/03_2_gscv/gscv_results/krr_gscv_results.csv Random_state: RandomState(MT19937), NoTrials: 15, nfolds: 10, n_jobs: 20, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 19:54:08 - INFO - Trial: 0 out of 15
+2024-06-30 19:54:49 - INFO - Trial: 1 out of 15
+2024-06-30 19:55:22 - INFO - Trial: 2 out of 15
+2024-06-30 19:55:55 - INFO - Trial: 3 out of 15
+2024-06-30 19:56:30 - INFO - Trial: 4 out of 15
+2024-06-30 19:57:05 - INFO - Trial: 5 out of 15
+2024-06-30 19:57:42 - INFO - Trial: 6 out of 15
+2024-06-30 19:58:16 - INFO - Trial: 7 out of 15
+2024-06-30 19:58:51 - INFO - Trial: 8 out of 15
+2024-06-30 19:59:26 - INFO - Trial: 9 out of 15
+2024-06-30 19:59:57 - INFO - Trial: 10 out of 15
+2024-06-30 20:00:32 - INFO - Trial: 11 out of 15
+2024-06-30 20:01:09 - INFO - Trial: 12 out of 15
+2024-06-30 20:01:45 - INFO - Trial: 13 out of 15
+2024-06-30 20:02:18 - INFO - Trial: 14 out of 15
+2024-06-30 20:02:55 - INFO - Loaded and parsed ../03_Modelling/03_1_rscv/rscv_results/mlp_rscv_results.csv successfully.
+2024-06-30 20:02:55 - INFO - datatype of values in Column model : object
+2024-06-30 20:02:55 - INFO - datatype of values in Column MAE : float64
+2024-06-30 20:02:55 - INFO - datatype of values in Column RMSE : float64
+2024-06-30 20:02:55 - INFO - datatype of values in Column activation : object
+2024-06-30 20:02:55 - INFO - datatype of values in Column alpha : float64
+2024-06-30 20:02:55 - INFO - datatype of values in Column early_stopping : bool
+2024-06-30 20:02:55 - INFO - datatype of values in Column hidden_layer_sizes : int64
+2024-06-30 20:02:55 - INFO - datatype of values in Column solver : object
+2024-06-30 20:02:55 - INFO - datatype of values in Column validation_fraction : float64
+2024-06-30 20:02:55 - INFO - datatype of values in Column max_iter : float64
+2024-06-30 20:02:55 - INFO - Grid saved as ../03_Modelling/03_2_gscv/gscv_results/mlp_grid.txt
+2024-06-30 20:02:55 - INFO - Grid for mlp {'activation': array(['identity', 'logistic', 'tanh'], dtype=object), 'alpha': array([5.33696480e-05, 7.41941484e+02, 1.48388291e+03, 2.22582434e+03,
+       2.96776578e+03]), 'early_stopping': array([False,  True]), 'hidden_layer_sizes': array([108, 125, 142, 160, 177]), 'solver': array(['lbfgs', 'sgd'], dtype=object), 'validation_fraction': array([0.16268425, 0.16986029, 0.17703634, 0.18421239, 0.19138844]), 'max_iter': array([276, 313, 350, 386, 423])}
+2024-06-30 20:02:55 - INFO - Results file: ../03_Modelling/03_2_gscv/gscv_results//mlp_gscv_results.csv
+2024-06-30 20:02:55 - INFO - Features: (1290, 410), Target: (1290,), Model: MLPRegressor(), Param_distributions: {'activation': array(['identity', 'logistic', 'tanh'], dtype=object), 'alpha': array([5.33696480e-05, 7.41941484e+02, 1.48388291e+03, 2.22582434e+03,
+       2.96776578e+03]), 'early_stopping': array([False,  True]), 'hidden_layer_sizes': array([108, 125, 142, 160, 177]), 'solver': array(['lbfgs', 'sgd'], dtype=object), 'validation_fraction': array([0.16268425, 0.16986029, 0.17703634, 0.18421239, 0.19138844]), 'max_iter': array([276, 313, 350, 386, 423])}, Results File: ../03_Modelling/03_2_gscv/gscv_results//mlp_gscv_results.csv Random_state: RandomState(MT19937), NoTrials: 15, nfolds: 10, n_jobs: 20, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 20:02:55 - INFO - Trial: 0 out of 15

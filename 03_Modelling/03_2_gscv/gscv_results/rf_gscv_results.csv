@@ -1,0 +1,34 @@
+model,MAE,RMSE,params
+RandomForestRegressor(),98.1315018515315,129.06551540107083,"{'max_depth': np.int64(13), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(79)}"
+RandomForestRegressor(),96.79729387578811,127.42837894703786,"{'max_depth': np.int64(14), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(41)}"
+model,MAE,RMSE,params
+RandomForestRegressor(),103.08559192463827,129.66327215144207,"{'max_depth': np.int64(13), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(98)}"
+RandomForestRegressor(),101.85086645567296,128.3843019039076,"{'max_depth': np.int64(12), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(79)}"
+model,MAE,RMSE,params
+RandomForestRegressor(),102.53130898504365,127.62220712046555,"{'max_depth': np.int64(12), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(60)}"
+RandomForestRegressor(),102.9271057289795,128.31213827418242,"{'max_depth': np.int64(14), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(79)}"
+model,MAE,RMSE,params
+RandomForestRegressor(),98.74311636479833,126.15506547873777,"{'max_depth': np.int64(14), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(97)}"
+RandomForestRegressor(),102.03006478797411,127.71085292367526,"{'max_depth': np.int64(13), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(86)}"
+model,MAE,RMSE,params
+RandomForestRegressor(),98.30256518309993,125.27742932570041,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(7), 'n_estimators': np.int64(53)}"
+RandomForestRegressor(),102.01195335798303,128.2792376025267,"{'max_depth': np.int64(12), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(53)}"
+model,MAE,RMSE,params
+RandomForestRegressor(),99.28846184927866,125.9320760554681,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(7), 'n_estimators': np.int64(53)}"
+RandomForestRegressor(),104.27552352314892,130.57092330656846,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(7), 'n_estimators': np.int64(75)}"
+model,MAE,RMSE,params
+RandomForestRegressor(),93.54131371297548,119.28120353414147,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"
+RandomForestRegressor(),92.17960705164006,117.68546803324459,"{'max_depth': np.int64(14), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(97)}"
+RandomForestRegressor(),93.19461225146362,117.94613960350469,"{'max_depth': np.int64(17), 'max_features': np.int64(7), 'min_samples_split': np.int64(7), 'n_estimators': np.int64(53)}"
+RandomForestRegressor(),93.74640460753,118.10533492216787,"{'max_depth': np.int64(14), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"
+RandomForestRegressor(),91.57260464329215,117.71994473806957,"{'max_depth': np.int64(13), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(86)}"
+RandomForestRegressor(),93.55237760508841,118.64928988153237,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(97)}"
+RandomForestRegressor(),93.40364687209755,118.6870283302365,"{'max_depth': np.int64(12), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"
+RandomForestRegressor(),94.3093096177862,120.57515478514809,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"
+RandomForestRegressor(),93.08325133256439,118.49719645635842,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(8), 'n_estimators': np.int64(86)}"
+RandomForestRegressor(),93.21012582647971,118.88138953942989,"{'max_depth': np.int64(17), 'max_features': np.int64(7), 'min_samples_split': np.int64(7), 'n_estimators': np.int64(53)}"
+RandomForestRegressor(),91.59187295344037,116.68654317426741,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"
+RandomForestRegressor(),93.57335102779436,118.30614643664843,"{'max_depth': np.int64(17), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"
+RandomForestRegressor(),93.42184534056112,119.30902766160533,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(7), 'n_estimators': np.int64(75)}"
+RandomForestRegressor(),94.20601317528447,120.36881051768323,"{'max_depth': np.int64(12), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(97)}"
+RandomForestRegressor(),91.732253568516,117.44982139368952,"{'max_depth': np.int64(17), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"

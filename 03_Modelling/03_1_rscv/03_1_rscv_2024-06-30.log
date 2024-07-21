@@ -1,0 +1,16 @@
+2024-06-30 14:58:29 - INFO - Logging started
+2024-06-30 14:58:30 - INFO - Dataset: data_dps_deriv_1200
+2024-06-30 14:58:30 - INFO - Size of the dataset: (1290, 415)
+2024-06-30 14:58:30 - INFO - Size of the dataset not reduced: (1290, 415)
+2024-06-30 14:58:30 - INFO - Testing for Cross Validation: False, nfolds: 10, NoTrials: 15, n_jobs: 30
+2024-06-30 14:58:42 - INFO - Number of columns dropped, where std = 0.0 in X: 0
+2024-06-30 14:58:43 - INFO - Dimensions of X after dropping columns with std = 0.0: (1290, 410)
+2024-06-30 14:58:43 - INFO - Dimensions of Y: (1290,)
+2024-06-30 14:58:45 - INFO - random split with testsize 0.3 into training and test sets
+2024-06-30 14:58:51 - INFO - Scorer: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 14:59:19 - INFO - STARTED the RandomizedSearchCV for HistGradientBoostingRegressor() with 15 trials
+2024-06-30 14:59:19 - INFO - Features: (1290, 410), Target: (1290,), Model: HistGradientBoostingRegressor(), Param_distributions: {'loss': ['squared_error'], 'learning_rate': <scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7f495ce696d0>, 'max_iter': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f495ce6a090>, 'max_leaf_nodes': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f495ce6a570>, 'min_samples_leaf': <scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x7f495ce6a5a0>}, Results File: ../03_Modelling/03_1_rscv/rscv_results//hgb_rscv_results.csv Random_state: RandomState(MT19937), NoTrials: 15, nfolds: 10, n_jobs: 30, Scoring: make_scorer(root_mean_squared_error, greater_is_better=False, response_method='predict')
+2024-06-30 14:59:19 - INFO - Results file: ../03_Modelling/03_1_rscv/rscv_results//hgb_rscv_results.csv
+2024-06-30 14:59:19 - INFO - Trial: 0 out of 15
+2024-06-30 16:34:51 - INFO - Trial: 1 out of 15
+2024-06-30 17:07:12 - INFO - Trial: 2 out of 15

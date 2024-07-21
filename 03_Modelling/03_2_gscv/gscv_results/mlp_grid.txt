@@ -1,0 +1,2 @@
+gscv_parameters = {'activation': array(['identity', 'logistic', 'tanh'], dtype=object), 'alpha': array([5.33696480e-05, 7.41941484e+02, 1.48388291e+03, 2.22582434e+03,
+       2.96776578e+03]), 'early_stopping': array([False,  True]), 'hidden_layer_sizes': array([108, 125, 142, 160, 177]), 'solver': array(['lbfgs', 'sgd'], dtype=object), 'validation_fraction': array([0.16268425, 0.16986029, 0.17703634, 0.18421239, 0.19138844]), 'max_iter': array([276, 313, 350, 386, 423])}

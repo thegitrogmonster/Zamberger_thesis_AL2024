@@ -1,0 +1,34 @@
+model,MAE,RMSE,params
+PLSRegression(),92.99688164265257,121.18146441807258,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(11), 'scale': np.True_, 'tol': np.float64(0.07355567806565752)}"
+PLSRegression(),94.85086095345979,129.51238042658517,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(11), 'scale': np.False_, 'tol': np.float64(0.07355567806565752)}"
+model,MAE,RMSE,params
+PLSRegression(),94.82448652455489,123.25834928189146,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.07355567806565752)}"
+PLSRegression(),90.77491398653557,118.0271429569478,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(11), 'scale': np.True_, 'tol': np.float64(0.07355567806565752)}"
+model,MAE,RMSE,params
+PLSRegression(),100.23908856916599,132.30807482685032,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(11), 'scale': np.True_, 'tol': np.float64(0.07355567806565752)}"
+PLSRegression(),95.7056415774434,128.32072080455785,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(11), 'scale': np.False_, 'tol': np.float64(0.07355567806565752)}"
+model,MAE,RMSE,params
+PLSRegression(),94.82448652455489,123.25834928189146,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.07355567806565752)}"
+PLSRegression(),90.77491398653557,118.0271429569478,"{'copy': np.True_, 'max_iter': np.int64(23), 'n_components': np.int64(11), 'scale': np.True_, 'tol': np.float64(0.07355567806565752)}"
+model,MAE,RMSE,params
+PLSRegression(),87.42064755541256,110.42468768197132,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(14), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),90.79696502600785,114.56100727129285,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+model,MAE,RMSE,params
+PLSRegression(),96.42598669878141,124.67046380124528,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(13), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),100.24343967845827,127.6606697824751,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+model,MAE,RMSE,params
+PLSRegression(),89.60634825040547,116.21567238204982,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),85.65824964864849,111.85596732436206,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),84.97034405129757,112.4602425155793,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(14), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),87.67253511970216,114.90958681128218,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),84.36923015134303,112.38602756190198,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),88.56885805798422,115.94001699161788,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),86.19033424341403,113.31619854689066,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),88.3552289410088,114.93706946010904,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),87.36265658682639,115.11330503086498,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),85.57603552723165,112.47971880199557,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),87.36735899984404,116.92904248075325,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),86.1874576249392,115.14602486880436,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),85.27162599296385,113.3305094840558,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),86.93557043504244,114.60018505717304,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+PLSRegression(),85.82799483310217,112.7496206444859,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(15), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
