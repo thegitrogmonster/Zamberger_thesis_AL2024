@@ -11,19 +11,60 @@ output:
     df_print: paged
     fig_height: 7
     fig_width: 10
+  pdf_document:
+    toc: true
+    toc_depth: '3'
 ---
-test
-```{r setup, include=FALSE}
+# Preperation
+
+To load the necessary data, the essential parts of the 01_extract_from_R.rmd script will be integrated in this .rmd. 
+
+To define the working directory in an rmarkdwon code, the setwd() function will be evaluated only for the current chunk. To change it for the whole document, the knitr::opts_knit$set() function provides this functionality. 
+
+Source: [bookdown.org, 07.04.2024](https://bookdown.org/yihui/rmarkdown-cookbook/working-directory.html)
+
+```{r preperation}
+#clear all data frames from environment
+rm(list=ls(all=TRUE)[sapply(mget(ls(all=TRUE)), class) == "data.frame"])
+# set directory-paths
+# getwd()
+home_dir<-"C:/Users/bernd/Dropbox/Masterarbeit_2023/1_Statistical_Learning_Spangl/"
+knitr::opts_knit$set(root.dir = home_dir)
+```
+
+
+```{r setup1}
+code_dir<- "../code/"
+data_dir<-"../data/extracted_from_rdata/"
+fig_dir<-"../figures/"
+# load data
+load("C:/Users/bernd/Dropbox/Masterarbeit_2023/1_Statistical_Learning_Spangl/code/Code_Bernhard/dataPSsub_new3.RData")
+# clean up 
+keep<-c("home_dir", # directory structure
+		"data_dir", # directory structure
+		"code_dir", # directory structure
+		"dps1200", # data in R
+		"dpsDeriv1200" # data in R
+		)
+rm(list = setdiff(ls(), keep))
+
+```
+
+
+```{r libraries}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyr)
 library(ggplot2)
+library(dplyr)
 ```
 
 This code is developed to visualize all the spectra in an appropriate manner. For this purpose we use the dps1200 dataframe. 
 ```{r data_definition}
 
 # Save the data as a new dataframe
-data<-dps1200
+# data<-dps1200
+
+data <- dpsDeriv1200
 
 head(data)
 
@@ -43,8 +84,6 @@ To visualize the data, different plots will be generated:
 * plot the absorbance against the wavelength
 
 ```{r plot-spectra}
-library(ggplot2)
-
 # save the spectral data as a new dataframe, without the descriptive coloumns
 data_plot<-data[-(1:4)]
 
@@ -59,7 +98,7 @@ data_plot_long <- pivot_longer(data_plot,cols = everything(),  names_to="Wavelen
 data_plot_long$`Wavelength [nm]`<-(as.numeric(data_plot_long$`Wavelength [nm]`))
 
 # for
-head(data_plot_long)
+str(data_plot_long)
 
 # generate the plots for the spectras
 ggplot(data_plot_long, aes(x = `Wavelength [nm]`, y = Intensity)) +
@@ -71,14 +110,14 @@ ggplot(data_plot_long, aes(x = `Wavelength [nm]`, y = Intensity)) +
 # alpha = 0.005 defines the transparency, points overlapping can be better differentiated
 
 ggplot(data_plot_long, aes(x = `Wavelength [nm]`, y = Intensity)) +
-  geom_point(alpha = 0.005, size = 1) + # , colour = 3) +
+  geom_point(alpha = 0.01, size = 0.1) + # , colour = 3) +
   labs(title = "Overview of the spectra",
        x = "Wavelength [nm]",
        y = "Intensity [1]")
 
 ```
 
-```{r}
+```{r plot-2columns}
 ggplot(data, aes(x = tree)) +
  geom_line(aes(y = `2970`, color = "2970")) +
  geom_line(aes(y = `2883`, color = "2883")) +
@@ -86,16 +125,7 @@ ggplot(data, aes(x = tree)) +
  labs(x = "Year", y = "Value", color = "Column", title = "")+
 	theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
 ```
-
-
-```{r}
-ggplot(data, aes(x = type, fill=Origin)) + 
-	geom_bar()
-
-```
-
-
-```{r}
+```{r plot-count1}
 # Generate a faceted bar plot by Origin
 ggplot(data, aes(x = type)) +
  geom_bar() +
@@ -107,6 +137,9 @@ ggplot(data, aes(x = Origin)) +
  geom_bar() +
  facet_wrap(~type) +
  labs(x = "Origin", y = "Count", title = "Count of Origins by Type of Environment")
+```
+
+```{r plot-Count-by-Country}
 
 # Create the single bar plot colored by country
 ggplot(data, aes(x = type, fill = Origin)) +
@@ -114,10 +147,16 @@ ggplot(data, aes(x = type, fill = Origin)) +
  labs(x = "Type", y = "Count", fill = "Country", title = "Count of Types by Country")
 
 # Create the single bar plot colored by country
+
+
+ggplot(data, aes(x = type, fill=Origin)) + 
+	geom_bar() +
+ labs(x = "Type", y = "Count", fill = "Country", title = "Count of Types by Country (stacked)")
 ```
 
 
-```{r}
+
+```{r num_columns}
 # Find the position of the 'type' column
 type_position <- which(names(data) == "type")
 type_position
@@ -127,85 +166,64 @@ numerical_columns <- names(data)[type_position + 1:ncol(data)]
 
 # Print the first five selected columns
 head(numerical_columns)
-
-# Initialize an empty ggplot object
-p <- ggplot()
-
-# Loop through each pair of numeric columns
-# for (i in 1:(length(numerical_columns) - 1)) {
-#  for (j in (i + 1):length(numerical_columns)) {
-#    # Create a plot for each pair
-#    plot <- ggplot(data, aes_string(x = numerical_columns[i], y = numerical_columns[j], color = "type")) +
-#      geom_point() +
-#      labs(x = numerical_columns[i], y = numerical_columns[j], color = "Type") +
-#      theme_minimal()
-#    
-#    # Print the plot
-#    print(plot)
-# }
-#}
 ```
 
 
 ```{r}
 # loop over the unique values in data$type
-# create the plot (x= numerical_columns, y = value), color by
+# create a plot (x= numerical_columns, y = value), color by
 
-# ggplot(data, aes(x=numerical_columns[1], y = value))
+data_plot2<-data[-(1:3)]
 
-# Initialize an empty ggplot object
-p <- ggplot()
+data_plot_long_2 <- data_plot2 %>%
+	pivot_longer(!type ,  names_to="Wavelength [nm]", values_to = "Intensity")
 
-for (i in unique(data$type)){
-	# 
-}
+# change the datatype to numeric, for the wavelengths to be displayed correctly
+data_plot_long_2$`Wavelength [nm]`<-(as.numeric(data_plot_long_2$`Wavelength [nm]`))
 
-# Loop over each numerical column
-for (col in names(data)[which(names(data) %in% numerical_columns)]) {
- # Add points to the plot for the current column
- p <- p + geom_point(data = data, aes(x = col, y = data[[col]], color = type))
-}
+# inspect the plotting data
+head(data_plot_long_2)
 
-# Add labels and title
-p <- p + labs(x = "Wavelength", y = "Intensity", color = "Type", title = "NIR-Spectra Intensity by Wavelength and Type")
+# generate the plots for the spectra
+ggplot(data_plot_long_2, aes(x = `Wavelength [nm]`, y = Intensity)) +
+  geom_point(alpha=1, size = 0.01, aes(color = type))+ 
+  labs(title = "Plot of the spectra, coloured by 'type'",
+       x = "Wavelength [nm]",
+       y = "Intensity [1]")
 
-# Display the plot
-print(p)
+# generate plots for the individual type
 
-```
-```{r}
-# Load necessary libraries
-library(ggplot2)
-library(tidyverse)
+# living
+ggplot(data_plot_long_2, aes(x = `Wavelength [nm]`, y = Intensity)) +
+  geom_point(data= data_plot_long_2 %>% filter(type == "living") ,
+  		   alpha=1, size = 0.01, aes(color = type))+ 
+  labs(title = "Test of the spectra",
+       x = "Wavelength [nm]",
+       y = "Intensity [1]")
 
-# Assuming 'data' is your dataframe and 'numerical_columns' contains the names of your wavelength columns
-# Reshape the data to a long format
-data_long <- data%>%
- pivot_longer(cols = all_of(numerical_columns, names_to = "Wavelength", values_to = "Intensity"))
 
-# Plot the reshaped data
-p <- ggplot(data_plot, aes(x = data_plot$, y = "Intensity", color = "type")) +
- geom_point() +
- labs(x = "Wavelength", y = "Intensity", color = "Type", title = "NIR-Spectra Intensity by Wavelength and Type")
-
-# Display the plot
-print(p)
+# not living
+ggplot(data_plot_long_2, aes(x = `Wavelength [nm]`, y = Intensity)) +
+  geom_point(data= data_plot_long_2 %>% filter(type != "living") ,
+  		   alpha=0.1, size = 0.01, aes(color = type))+ 
+  labs(title = "NIR-Spectra Intensity by Wavelength and Type",
+       x = "Wavelength [nm]",
+       y = "Intensity [1]")
 
 ```
+```{r 2wl_against_each_other}
+ggplot(data[4:6], aes(x= data$"2970", y=data$"2968"))+geom_point()
 
+data[5:6]
 
-```{r coloured plot}
+```
+
+```{r coloured_plot}
 head(data)
 
 ggplot(data, aes(x = year, y = `2970`)) +
- geom_point() +
+ geom_point(aes(colour=type)) +
  labs(x = "Year", y = "Value", title = "Scatter Plot of 2970 Over Years")
-
-
-
-for(i in unique(data$Origin)){
-	ggplot(data = data, aes(data$type, count(i)))
-}
 ```
 
 
@@ -213,10 +231,12 @@ for(i in unique(data$Origin)){
 
 for each tree we have multiple spectral measurements, where each measurement includes a specific tree ring. To get a sense for the age distribution, the Quartiles will be calculated. 
 
-```{r}
+```{r} 
+#, results='hide'}
 ggplot(data, aes(x = year)) +
  geom_bar(fill = "steelblue") +
  theme_minimal() +
+	scale_y_continuous(breaks=seq(0, 12, 1))
  labs(x = "Year", y = "Count", title = "Count of Measurements per Date of Wood growth")
 ```
 
@@ -235,3 +255,13 @@ ggplot(data, aes(x = Origin)) +
 	theme_minimal() +
  labs(x = "Origin", y = "Count", title = "Measurements per country")
 ```
+
+
+Variable variance 
+
+```{r}
+
+plot(sapply(data_plot, var))
+```
+
+
