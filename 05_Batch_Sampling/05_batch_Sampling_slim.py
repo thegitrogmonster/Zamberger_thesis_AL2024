@@ -118,8 +118,6 @@ data = import_dpsDeriv1200(datafile)
 logging.info(f"Data loaded and preprocessed from {datafile}")
 
 
-# ## Import Timer
-
 # ## Split into feature and target variables
 
 # In[ ]:
@@ -722,7 +720,7 @@ for model in model_params_list:
 # In[ ]:
 
 
-# Main Experiment
+# Main Batch Experiment
 
 AL_RESULTS_PATH = f"{RESULTS_PATH}al_batch_tables/"
 
@@ -902,26 +900,31 @@ data_pls.head()
 # In[ ]:
 
 
-# Only necessary, if not the full notebook is run
-if selection_criteria == None:
+# Define variables for plotting, if not the whole notebook is run
+try:
+    selection_criteria
+except NameError:
     selection_criteria = [
         {
             "criteria": _random_selection,
-            "crit_name": "random",
+            "crit_name": "Random",
             "kwargs": {},
         },  #'random_state': random_state}},
-        {"criteria": _gsx_selection, "crit_name": "gsx", "kwargs": {}},
-        {"criteria": _gsy_selection, "crit_name": "gsy", "kwargs": {}},
+        {"criteria": _gsx_selection, "crit_name": "GSx", "kwargs": {}},
+        {"criteria": _gsy_selection, "crit_name": "GSy", "kwargs": {}},
         {
             "criteria": _uncertainty_selection,
-            "crit_name": "uncertainty",
+            "crit_name": "Variance",
             "kwargs": {"n_fold": 3},
         },
-        {"criteria": _distance_weighing, "crit_name": "idw", "kwargs": {}},
+        {"criteria": _distance_weighing, "crit_name": "IDW", "kwargs": {}},
     ]
 else:
     selection_criteria = selection_criteria
-if batch_sizes == None:
+
+try:
+    batch_sizes
+except NameError:
     batch_sizes = [3, 5, 10, 15, 20]
 else:
     batch_sizes = batch_sizes
@@ -939,7 +942,7 @@ from al_lib.results_vis import _seperate_results_val_batch
 # In[ ]:
 
 
-def plot_batch_results(results, model_name, batch_sizes, filepath):
+def plot_batch_results(results, model_name, batch_sizes):
     """
     Function to report the batch results
     """
@@ -1031,7 +1034,8 @@ def report_batch_results(data, model_name, selection_criteria, batch_sizes):
     test_df = pd.concat(results_test, axis=1)
     val_df = pd.concat(results_val, axis=1)
     results_df = pd.concat([test_df, val_df], axis=1)
-    plot_batch_results(results_df, model_name, batch_sizes, filepath)
+
+    plot_batch_results(results_df, model_name, batch_sizes)
 
 
 # In[ ]:

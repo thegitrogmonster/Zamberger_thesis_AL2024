@@ -37,6 +37,20 @@ sys.path.extend(PATHS)
 sys.path
 
 
+# # Define limitation of threads
+
+# In[ ]:
+
+
+import os
+
+os.environ["OMP_NUM_THREADS"] = "20"
+os.environ["MKL_NUM_THREADS"] = "20"
+os.environ["OPENBLAS_NUM_THREADS"] = "20"
+os.environ["VECLIB_MAXIMUM_THREADS"] = "20"
+os.environ["NUMEXPR_NUM_THREADS"] = "20"
+
+
 # ## Include a logger
 
 # In[ ]:
@@ -148,12 +162,6 @@ logging.info(
 
 
 # # Train/Test/Validation Split
-
-# In[ ]:
-
-
-
-
 
 # In[ ]:
 
@@ -646,7 +654,6 @@ assert (
 
 # perform active learning twice and generate result plots
 
-
 def test_active_learning_twice():
     """
     Function to test the active learning function
@@ -778,7 +785,7 @@ for model in models_available:
 
 
 # Define the models
-# remove the models that are not available
+
 models = ["rf", "krr", "hgb", "pls", "xgb"]
 models_list = [RF, KRR, HGB, PLS, XGB]
 
@@ -803,17 +810,17 @@ for model in model_params_list:
 selection_criteria = [
     {
         "criteria": _random_selection,
-        "crit_name": "random",
+        "crit_name": "Random",
         "kwargs": {},
     },  #'random_state': random_state}},
-    {"criteria": _gsx_selection, "crit_name": "gsx", "kwargs": {}},
-    {"criteria": _gsy_selection, "crit_name": "gsy", "kwargs": {}},
+    {"criteria": _gsx_selection, "crit_name": "GSx", "kwargs": {}},
+    {"criteria": _gsy_selection, "crit_name": "GSy", "kwargs": {}},
     {
         "criteria": _uncertainty_selection,
-        "crit_name": "uncertainty",
+        "crit_name": "Variance",
         "kwargs": {"n_fold": 3},
     },
-    {"criteria": _distance_weighing, "crit_name": "idw", "kwargs": {}},
+    {"criteria": _distance_weighing, "crit_name": "IDW-variant", "kwargs": {}},
 ]
 
 
@@ -846,17 +853,17 @@ n_jobs = 20
 selection_criteria = [
     {
         "criteria": _random_selection,
-        "crit_name": "random",
+        "crit_name": "Random",
         "kwargs": {},
     },  #'random_state': random_state}},
-    {"criteria": _gsx_selection, "crit_name": "gsx", "kwargs": {}},
-    {"criteria": _gsy_selection, "crit_name": "gsy", "kwargs": {}},
+    {"criteria": _gsx_selection, "crit_name": "GSx", "kwargs": {}},
+    {"criteria": _gsy_selection, "crit_name": "GSy", "kwargs": {}},
     {
         "criteria": _uncertainty_selection,
-        "crit_name": "uncertainty",
+        "crit_name": "Variance",
         "kwargs": {"n_fold": 3},
     },
-    {"criteria": _distance_weighing, "crit_name": "idw", "kwargs": {}},
+    {"criteria": _distance_weighing, "crit_name": "IDW-variant", "kwargs": {}},
 ]
 
 # perform the active learning process
@@ -1117,6 +1124,7 @@ def report_al_results(results, model_name, filepath, selection_criteria):
     # revised
     mean_auc_test = _calculate_auc(test_rmse)
     mean_auc_val = _calculate_auc(val_rmse)
+
     combined_auc_plot(
         mean_auc_test=mean_auc_test,
         mean_auc_val=mean_auc_val,
