@@ -1,0 +1,4 @@
+Model,RMSE,hyperparameters
+Random Forest,113.54,"{'max_depth': np.int64(16), 'max_features': np.int64(7), 'min_samples_split': np.int64(6), 'n_estimators': np.int64(75)}"
+PLS,106.45,"{'copy': np.True_, 'max_iter': np.int64(201), 'n_components': np.int64(14), 'scale': np.False_, 'tol': np.float64(0.3000640615051812)}"
+Kernel Ridge,92.19,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'rbf'}"

@@ -1,0 +1,6 @@
+Model,RMSE,hyperparameters
+Random Forest,116.32,"{'max_depth': 12, 'max_features': 7, 'min_samples_split': 11, 'n_estimators': 53}"
+PLS,107.75,"{'copy': True, 'max_iter': 459, 'n_components': 12, 'scale': False, 'tol': np.float64(0.3000640615051812)}"
+Kernel Ridge,91.29,"{'alpha': np.float64(0.0006739020867475914), 'gamma': np.float64(97508.38435276879), 'kernel': 'polynomial'}"
+XGBoost,98.6,"{'colsample_bytree': np.float64(0.9024510488355479), 'gamma': np.float64(0.24338297203210052), 'learning_rate': np.float64(0.08035726078424349), 'max_depth': 6, 'n_estimators': 92, 'reg_alpha': np.float64(0.08686856214001293), 'reg_lambda': np.float64(0.49919891319367615), 'subsample': np.float64(0.5723214510143011)}"
+HistGradientBoosting,95.56,"{'learning_rate': np.float64(0.04262389603635252), 'loss': 'squared_error', 'max_iter': 267, 'max_leaf_nodes': 16, 'min_samples_leaf': 8}"
