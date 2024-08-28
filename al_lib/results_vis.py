@@ -272,7 +272,7 @@ def _seperate_results_test_batch(results, model = None, model_name = None, batch
         test_rsme_random = pd.concat(
             [
                 test_rsme_random,
-                results.filter(regex=f"rmse_test_{batch_size}_{model_name}_Random"),
+                results.filter(regex=f"rmse_test_{batch_size}_{model_name}_random"),
             ],
             axis=1,
         )
@@ -280,7 +280,7 @@ def _seperate_results_test_batch(results, model = None, model_name = None, batch
             [
                 test_rsme_gsx,
                 results.filter(
-                    regex=f"rmse_test_{batch_size}_{model_name}_GSx"
+                    regex=f"rmse_test_{batch_size}_{model_name}_gsx"
                 ),
             ],
             axis=1,
@@ -289,7 +289,7 @@ def _seperate_results_test_batch(results, model = None, model_name = None, batch
             [
                 test_rsme_gsy,
                 results.filter(
-                    regex=f"rmse_test_{batch_size}_{model_name}_GSy"
+                    regex=f"rmse_test_{batch_size}_{model_name}_gsy"
                 ),
             ],
             axis=1,
@@ -298,7 +298,7 @@ def _seperate_results_test_batch(results, model = None, model_name = None, batch
             [
                 test_rmse_uncertainty,
                 results.filter(
-                    regex=f"rmse_test_{batch_size}_{model_name}_Variance"
+                    regex=f"rmse_test_{batch_size}_{model_name}_uncertainty"
                 ),
             ],
             axis=1,
@@ -307,7 +307,7 @@ def _seperate_results_test_batch(results, model = None, model_name = None, batch
             [
                 test_rmse_idw,
                 results.filter(
-                    regex=f"rmse_test_{batch_size}_{model_name}_IDW"
+                    regex=f"rmse_test_{batch_size}_{model_name}_idw"
                 ),
             ],
             axis=1,
@@ -354,7 +354,7 @@ def _seperate_results_val_batch(results, model = None, model_name = None, batch_
         val_rsme_random = pd.concat(
             [
                 val_rsme_random,
-                results.filter(regex=f"rmse_val_{batch_size}_{model_name}_Random"),
+                results.filter(regex=f"rmse_val_{batch_size}_{model_name}_random"),
             ],
             axis=1,
         )
@@ -362,7 +362,7 @@ def _seperate_results_val_batch(results, model = None, model_name = None, batch_
             [
                 val_rsme_gsx,
                 results.filter(
-                    regex=f"rmse_val_{batch_size}_{model_name}_GSx"
+                    regex=f"rmse_val_{batch_size}_{model_name}_gsx"
                 ),
             ],
             axis=1,
@@ -371,7 +371,7 @@ def _seperate_results_val_batch(results, model = None, model_name = None, batch_
             [
                 val_rsme_gsy,
                 results.filter(
-                    regex=f"rmse_val_{batch_size}_{model_name}_GSy"
+                    regex=f"rmse_val_{batch_size}_{model_name}_gsy"
                 ),
             ],
             axis=1,
@@ -380,7 +380,7 @@ def _seperate_results_val_batch(results, model = None, model_name = None, batch_
             [
                 val_rmse_uncertainty,
                 results.filter(
-                    regex=f"rmse_val_{batch_size}_{model_name}_Variance"
+                    regex=f"rmse_val_{batch_size}_{model_name}_uncertainty"
                 ),
             ],
             axis=1,
@@ -389,7 +389,7 @@ def _seperate_results_val_batch(results, model = None, model_name = None, batch_
             [
                 val_rmse_idw,
                 results.filter(
-                    regex=f"rmse_val_{batch_size}_{model_name}_IDW"
+                    regex=f"rmse_val_{batch_size}_{model_name}_idw"
                 ),
             ],
             axis=1,
